@@ -1,0 +1,40 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  min-height: 164px;
+  /* background-color: red; */
+}
+
+.img {
+  width: 100px;
+  height: 70px;
+}
+
+.logo_name {
+  display: flex;
+  margin-left: 95px;
+  height: 84.06px;
+  margin-top: 6px;
+}
+
+.name {
+  margin-top: 12px;
+  font: 700 36px "Montserrat";
+  color: white;
+  line-height: 43.88px;
+}
+
+.login {
+  margin-top: 26px;
+  font: 700 26px "Montserrat";
+  margin-right: 95px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  height: 32px;
+}
+
+.login:hover {
+  text-decoration: underline;
+}

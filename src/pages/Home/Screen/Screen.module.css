@@ -1,0 +1,26 @@
+.info {
+  text-align: center;
+  font: 800 48px "Montserrat";
+  color: white;
+  line-height: 58.51px;
+}
+
+.reg {
+  /* background-color: red; */
+  text-align: center;
+  margin-top: 170px;
+}
+
+.reg_btn {
+  height: 64px;
+  width: 256px;
+  border-radius: 30px;
+  border: none;
+  background-color: rgba(255, 184, 0, 1);
+  font: 700 24px "Montserrat";
+  color: white;
+}
+
+.reg_btn:hover {
+  text-decoration: underline;
+}
