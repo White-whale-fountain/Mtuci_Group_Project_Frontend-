@@ -1,0 +1,74 @@
+.dialog_singin {
+    width: 540px;
+    height: 540px;
+    z-index: 101;
+    padding: 10px;
+    margin: 130px auto;
+    border: None;
+    border-radius: 10px;
+}
+
+.dialog_singin::backdrop {
+    background-color: #fff;
+    opacity: 25%;
+}
+
+
+.close_button {
+    padding: 3px;
+    margin-left: 490px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    background: None;
+}
+
+.main_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+.header_text {
+    font: 700 32px Montserrat;
+    line-height: 39px;
+    letter-spacing: 0;
+}
+
+.chilren_form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    gap: 55px;
+    align-items: center;
+}
+
+.form_inputs{
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+    margin-top: 10px;
+    margin-bottom: 20px ;
+}
+
+.footer_text {
+    font: 300 22px Montserrat;
+    margin-top: 50px;
+}
+
+.sing_up_button {
+    border: None;
+    background: None;
+    cursor: pointer;
+    font: 300 20px Montserrat;
+
+}
+
+.sing_up_button:hover{
+    text-decoration: underline;
+}

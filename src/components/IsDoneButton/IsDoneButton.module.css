@@ -1,0 +1,12 @@
+.is_done_button{
+    width: 115px;
+    height: 45px;
+    border-radius: 7px;
+    cursor: pointer;
+    line-height: 30px;
+    font: 500 24px "Montserrat";
+    background-color: #FCF440;
+    box-shadow: 0 4px 4px 0 #00000040;
+    border: None;
+
+}

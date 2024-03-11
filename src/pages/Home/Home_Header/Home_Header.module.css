@@ -14,7 +14,7 @@
 
 .logo_name {
   display: flex;
-  margin-left: 95px;
+  margin-left: 65px;
   height: 84.06px;
   margin-top: 6px;
 }
@@ -38,4 +38,5 @@
 
 .login:hover {
   text-decoration: underline;
+  cursor: pointer;
 }

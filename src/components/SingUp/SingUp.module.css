@@ -1,0 +1,125 @@
+.dialog_singup {
+    width: 540px;
+    height: 745px;
+    z-index: 100;
+    padding: 10px;
+    margin: 75px auto;
+    border: None;
+    border-radius: 10px;
+}
+
+.dialog_singup p {
+    font: 500 25px Montserrat;
+    line-height: 29px;
+    letter-spacing: 0;
+}
+
+.dialog_singup::backdrop {
+    background-color: #fff;
+    opacity: 25%;
+}
+
+.close_button {
+    padding: 3px;
+    margin-left: 490px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    cursor: pointer;
+    background: None;
+}
+
+.main_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.header_text {
+    font: 700 32px Montserrat;
+    line-height: 39px;
+    letter-spacing: 0;
+}
+
+.chilren_form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+    gap: 45px;
+    align-items: center;
+}
+
+.form_inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.gender_choice {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+    gap: 65px
+}
+
+.gender_choice:focus {
+  outline: 0;
+  border-color: #2260ff;
+  box-shadow: 0 0 0 4px #b5c9fc;
+}
+
+.gender_radio_input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+}
+
+.gender_choice input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 0.0625em #0043ed;
+  background-color: #dee7ff;
+  z-index: 103;
+  color: #0043ed;
+}
+
+.gender_choice span {
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    padding: 0.245em .75em;
+    position: relative;
+    margin-left: .0625em;
+    border: 1px solid lightgrey;
+    box-shadow: 0 0 0 0.0125em #b5bfd9;
+    letter-spacing: .05em;
+    color: #000;
+    text-align: center;
+    transition: background-color .5s ease;
+    font: 500 29px Montserrat;
+}
+
+.select_your_age {
+
+}
+
+.select_age_input {
+    margin-top: 10px;
+    width: 83px;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    font: 500 25px Montserrat;
+    text-align: center;
+}
+
+.select_age_input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
