@@ -1,6 +1,6 @@
 import styles from '../Screen/Screen.module.css'
 import { useState } from 'react'
-import SingUp from '../../../components/SingUp/SingUp.jsx'
+import SingUp from '../components/SingUp/SingUp.jsx'
 
 export default function Screen() {
     const [singUp, setSingUp] = useState(false)
@@ -22,7 +22,6 @@ export default function Screen() {
             </div>
             <SingUp
                 open={singUp}
-                header={'Регистрация'}
                 onClose={buttonSingUpSet}
             />
         </>

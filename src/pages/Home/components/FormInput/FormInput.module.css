@@ -1,10 +1,10 @@
 .form_input{
     text-align: center;
-    width: 263px;
-    height: 53px;
+    width: 253px;
+    height: 50px;
     border-radius: 19px;
     border: 1px solid #0000004D;
-    font: 400 23px "Montserrat";
-    line-height: 28px;
+    font: 500 21px "Montserrat";
+    line-height: 29px;
     letter-spacing: 0;
 }

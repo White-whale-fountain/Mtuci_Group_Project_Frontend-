@@ -1,8 +1,8 @@
 import styles from '../Home_Header/Home_Header.module.css'
-import SingIn from '../../../components/SingIn/SingIn.jsx'
+import SingIn from '../components/SingIn/SingIn.jsx'
 import { useState } from 'react'
-import IsDoneButton from '../../../components/IsDoneButton/IsDoneButton.jsx'
-import FormInput from '../../../components/FormInput/FormInput.jsx'
+import IsDoneButton from '../components/IsDoneButton/IsDoneButton.jsx'
+import FormInput from '../components/FormInput/FormInput.jsx'
 
 
 export default function Home_Header() {
@@ -21,7 +21,6 @@ export default function Home_Header() {
             <button className={styles.login} onClick={buttonSingInSet}>Войти</button>
             <SingIn
                 open={singIn}
-                header={'Войти'}
                 onClose={buttonSingInSet}
             >
 

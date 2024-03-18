@@ -25,3 +25,9 @@
   text-decoration: underline;
   cursor: pointer;
 }
+
+.reg_btn:focus {
+  text-decoration: None;
+  background-color: rgb(225, 178, 51);
+  outline: 2px solid rgb(49, 37, 0);
+}
