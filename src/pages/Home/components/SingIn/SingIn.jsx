@@ -4,22 +4,23 @@ import FormInput from "../FormInput/FormInput.jsx";
 import IsDoneButton from "../IsDoneButton/IsDoneButton.jsx";
 import closeImg from "../public/closeButton.jpg";
 import axios from "axios";
+import { auth } from "../../../../service/authorization.js";
 
 // import { auth } from "../../../../service/authorization.js";
 
 export default function SingIn({ open, onClose }) {
-  const instance = axios.create({
-    baseURL: "http://127.0.0.1:5000",
-  });
-  function getData(data) {
-    console.log(data);
-    instance
-      .post("/login", { data })
-      // .post("/login", { email: mail, password: pass })
-      .then((response) => {
-        console.log(response);
-      });
-  }
+  // const instance = axios.create({
+  //   baseURL: "http://127.0.0.1:5000",
+  // });
+  // function getData(form) {
+  //   console.log(form);
+  //   instance
+  //     .post("/login", { form })
+  //     // .post("/login", { email: mail, password: pass })
+  //     .then((response) => {
+  //       console.log(response);
+  //     });
+  // }
 
   const dialogSingIn = useRef();
   useEffect(() => {
@@ -51,16 +52,11 @@ export default function SingIn({ open, onClose }) {
 
   function formSubmit(event) {
     event.preventDefault();
-    return getData(
-      JSON.stringify(
-        { email: form.name, password: form.password },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-    );
+    const name = form.name;
+    const pass = form.password;
+    // console.log(name, pass);
+    // console.log(typeof( JSON.stringify(form)));
+    return auth.login(name, pass);
 
     // const data = JSON.stringify(form);
     // const pass = JSON.stringify(form.password);
