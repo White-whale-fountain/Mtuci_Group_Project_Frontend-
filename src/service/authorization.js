@@ -1,34 +1,28 @@
 import axios from "axios";
 
-// const instance = axios.create({
-//   baseURL: "http://127.0.0.1:5000",
-// });
+const instance = axios.create({
+  baseURL: "http://127.0.0.1:5000",
+  timeout: 1000,
+  headers: { "content-type": "application/json" },
+});
 
 export const auth = {
   async login(name, pass) {
-    // console.log(name);
-    const resp = await axios
-      .post(
-        "http://127.0.0.1:5000/login",
-        { name: name, password: pass },
-        { headers: { "content-type": "application/json" } }
-      )
+    await instance
+      .post(`/login`, { name: name, password: pass })
       .then((response) => {
         console.log(response.data.access_token);
       });
-    return resp;
   },
-  async registr(name, pass) {
-    console.log(name);
-    const resp = await axios
-      .post(
-        "http://127.0.0.1:5000/registration",
-        { email: name, name: name, password: pass },
-        { headers: { "content-type": "application/json" } }
-      )
+  async registration(name, pass) {
+    await instance
+      .post(`/registration`, {
+        email: name,
+        name: name,
+        password: pass,
+      })
       .then((response) => {
         console.log(response.data.access_token);
       });
-    return resp;
   },
 };

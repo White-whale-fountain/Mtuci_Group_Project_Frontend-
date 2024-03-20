@@ -35,7 +35,7 @@ export default function SingUp({ open, onClose }) {
       // alert(JSON.stringify(data, null, 2))                            // Функция, отправляющая форму
       const name = data.name;
       const pass = data.password;
-      return auth.registr(name, pass);
+      return auth.registration(name, pass);
       formClose();
     },
     validate: (values) => {
