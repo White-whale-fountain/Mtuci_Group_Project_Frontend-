@@ -1,9 +1,9 @@
 .dialog_singup {
     width: 500px;
-    height: 620px;
+    height: 680px;
     z-index: 100;
     padding: 7px;
-    margin: 50px auto;
+    margin: 25px auto;
     border: None;
     border-radius: 10px;
     font: 500 23px Montserrat;
@@ -12,6 +12,7 @@
     position: relative;
     animation: fadeIn 650ms;
 }
+
 .dialog_singup::backdrop {
     background-color: #fff;
     opacity: 25%;
@@ -38,27 +39,28 @@
 }
 
 .header_text {
-    font: 700 30px Montserrat;
+    font: 700 28px Montserrat;
     line-height: 35px;
     letter-spacing: 0;
-    margin-top: 25px;
+    margin-top: 20px;
 }
 
 .chilren_form {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
-    gap: 30px;
+    gap: 25px;
     align-items: center;
+    position: relative;
 }
 
-.form_input{
+.form_input {
     text-align: center;
-    width: 253px;
-    height: 50px;
+    width: 285px;
+    height: 47px;
     border-radius: 19px;
     border: 1px solid #0000004D;
-    font: 500 21px "Montserrat";
+    font: 500 20px "Montserrat";
     line-height: 29px;
     letter-spacing: 0;
 }
@@ -66,43 +68,43 @@
 .form_inputs {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 22px;
 }
 
-.gender_choice {
+.sex_choice {
     display: flex;
     justify-content: center;
     padding-left: 0;
     gap: 50px
 }
 
-.gender_choice:focus {
-  outline: 0;
-  border-color: #2260ff;
-  box-shadow: 0 0 0 4px #b5c9fc;
+.sex_choice:focus {
+    outline: 0;
+    border-color: #2260ff;
+    box-shadow: 0 0 0 4px #b5c9fc;
 }
 
-.gender_radio_input {
+.sex_radio_input {
     position: absolute;
     overflow: hidden;
     clip: rect(0 0 0 0);
     clip-path: inset(100%);
 }
 
-.gender_choice input[type="radio"]:checked + span {
-  box-shadow: 0 0 0 0.0625em #0043ed;
-  background-color: #dee7ff;
-  z-index: 103;
-  color: #0043ed;
+.sex_choice input[type="radio"]:checked + span {
+    box-shadow: 0 0 0 0.0625em #0043ed;
+    background-color: #dee7ff;
+    z-index: 103;
+    color: #0043ed;
 }
 
-.gender_choice span {
+.sex_choice span {
     border-radius: 5px;
     margin-top: 10px;
     display: block;
     cursor: pointer;
-    height: 35px;
-    width: 35px;
+    height: 33px;
+    width: 33px;
     background-color: #fff;
     padding: 0.245em .75em;
     position: relative;
@@ -119,7 +121,7 @@
 .select_age_input {
     margin-top: 10px;
     width: 85px;
-    height: 37px;
+    height: 31px;
     border-radius: 5px;
     border: 1px solid grey;
     font: 500 23px Montserrat;
@@ -131,23 +133,23 @@
     margin: 0;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 10%;
-    scale: 70%;
-  }
-  100% {
-    opacity: 1;
-    scale: 1;
-  }
-}
-
-.errors_container{
+.errors_container {
     width: 253px;
     text-align: center;
     position: absolute;
     margin-top: 0;
     z-index: 110;
-    color: red;
+    color: #ff0000aa;
     font: 13px monospace;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 10%;
+        scale: 70%;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
 }

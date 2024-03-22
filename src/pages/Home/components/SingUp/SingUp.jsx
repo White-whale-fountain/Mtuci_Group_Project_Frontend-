@@ -15,7 +15,7 @@ export default function SingUp({ open, onClose }) {
         }
     }, [open])
 
-    function formClose(){
+    function formClose() {
         formik.resetForm()
         formik.setErrors({})
         formik.setTouched({})
@@ -26,10 +26,11 @@ export default function SingUp({ open, onClose }) {
     const formik = useFormik(
         {
             initialValues: {
+                login: '',
                 name: '',
                 password: '',
                 confirmPassword: '',
-                gender: '',
+                sex: '',
                 age: '',
             },
             onSubmit: (data) => {
@@ -38,11 +39,14 @@ export default function SingUp({ open, onClose }) {
             },
             validate: values => {
                 const errors = {}
+                if (!values.login) {
+                    errors.login = 'Поле "Логин" обязательно'
+                }
                 if (!values.name) {
-                    errors.name = 'Поле "Имя" обязательно '
+                    errors.name = 'Поле "Имя" обязательно'
                 }
                 if (!values.password) {
-                    errors.password = 'Поле "Пароль" обязательно '
+                    errors.password = 'Поле "Пароль" обязательно'
                 } else if (values.password.length < 6) {
                     errors.password = 'Пароль должен содержать минимум 6 символов'
                 }
@@ -51,6 +55,10 @@ export default function SingUp({ open, onClose }) {
                     errors.confirmPassword = 'Повторите пароль'
                 } else if (values.password !== values.confirmPassword) {
                     errors.confirmPassword = 'Пароли не совпадают'
+                }
+
+                if (!values.age) {
+                    errors.age = 'Поле "Возраст" обязательно'
                 }
 
                 return errors
@@ -71,6 +79,24 @@ export default function SingUp({ open, onClose }) {
                         className={styles.chilren_form}
                         onSubmit={formik.handleSubmit}>
                         <div className={styles.form_inputs}>
+                            <label>
+                                {formik.touched.login && formik.errors.login ? (
+                                    <div className={styles.errors_container}>
+                                        <p>
+                                            {formik.errors.login}
+                                        </p>
+                                    </div>
+                                ) : null}
+                                <input
+                                    id='login'
+                                    placeholder={'Введите логин'}
+                                    className={styles.form_input}
+                                    name={'login'}
+                                    onChange={formik.handleChange}
+                                    onBlur={formik.handleBlur}
+                                    value={formik.values.login}
+                                />
+                            </label>
                             <label>
                                 {formik.touched.name && formik.errors.name ? (
                                     <div className={styles.errors_container}>
@@ -132,13 +158,13 @@ export default function SingUp({ open, onClose }) {
 
                         <div>
                             <p>Укажите свой пол</p>
-                            <div className={styles.gender_choice}>
+                            <div className={styles.sex_choice}>
                                 <label>
                                     <input
                                         type='radio'
-                                        name='gender'
-                                        className={styles.gender_radio_input}
-                                        id='genderFemale'
+                                        name='sex'
+                                        className={styles.sex_radio_input}
+                                        id='sexFemale'
                                         value={'Female'}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
@@ -148,9 +174,9 @@ export default function SingUp({ open, onClose }) {
                                 <label>
                                     <input
                                         type='radio'
-                                        name='gender'
-                                        className={styles.gender_radio_input}
-                                        id='genderMale'
+                                        name='sex'
+                                        className={styles.sex_radio_input}
+                                        id='sexMale'
                                         value={'Male'}
                                         onChange={formik.handleChange}
                                         onBlur={formik.handleBlur}
@@ -162,6 +188,13 @@ export default function SingUp({ open, onClose }) {
 
                         <div>
                             <p>Укажите свой возраст</p>
+                            {formik.touched.age && formik.errors.age ? (
+                                <div className={styles.errors_container}>
+                                    <p>
+                                        {formik.errors.age}
+                                    </p>
+                                </div>
+                            ) : null}
                             <input
                                 type='number'
                                 className={styles.select_age_input}
@@ -180,63 +213,3 @@ export default function SingUp({ open, onClose }) {
     )
 }
 
-
-// Состояния формы регистрации
-// const [form, setForm] = useState(
-//     {
-//         name: '',
-//         password: '',
-//         duplicatedPassword: '',
-//         gender: 'Женский',
-//         age: '',
-//     },
-// )
-
-// function nameListener(event) {
-//     setForm((prev) => ({
-//             ...prev,
-//             name: event.target.value,
-//         }
-//     ))
-// }
-//
-// function passwordListener(event) {
-//     setForm((prev) => ({
-//             ...prev,
-//             password: event.target.value,
-//         }
-//     ))
-// }
-//
-// function passwordDuplicateListener(event) {
-//     setForm((prev) => ({
-//             ...prev,
-//             duplicatedPassword: event.target.value,
-//         }
-//     ))
-// }
-//
-// function FgenderListener(event) {
-//     setForm((prev) => ({
-//             ...prev,
-//             gender: 'Женский',
-//         }
-//     ))
-// }
-//
-// function MgenderListener(event) {
-//     setForm((prev) => ({
-//             ...prev,
-//             gender: 'Мужской',
-//         }
-//     ))
-// }
-//
-// function ageListener(event) {
-//     setForm((prev) => ({
-//             ...prev,
-//             age: event.target.value,
-//
-//         }
-//     ))
-// }

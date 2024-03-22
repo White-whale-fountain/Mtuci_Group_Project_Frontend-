@@ -16,15 +16,15 @@ export default function SingIn({ open, onClose }) {
 
     const [form, setForm] = useState(
         {
-            name: '',
+            login: '',
             password: '',
         },
     )
 
-    function nameListener(event) {
+    function loginListener(event) {
         setForm((prev) => ({
                 ...prev,
-                name: event.target.value,
+                login: event.target.value,
             }
         ))
     }
@@ -57,9 +57,9 @@ export default function SingIn({ open, onClose }) {
                     >
                         <div className={styles.form_inputs}>
                             <FormInput
-                                val={form.name}
-                                onChange={nameListener}
-                                placeHolder={'Введите имя'} />
+                                val={form.login}
+                                onChange={loginListener}
+                                placeHolder={'Введите логин'} />
                             <FormInput
                                 val={form.password}
                                 onChange={passwordListener}
