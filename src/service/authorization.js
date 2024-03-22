@@ -7,22 +7,14 @@ const instance = axios.create({
 });
 
 export const auth = {
-  async login(name, pass) {
-    await instance
-      .post(`/login`, { name: name, password: pass })
-      .then((response) => {
-        console.log(response.data.access_token);
-      });
+  async login(form) {
+    await instance.post(`/login`, { ...form }).then((response) => {
+      console.log(response.data.access_token);
+    });
   },
-  async registration(name, pass) {
-    await instance
-      .post(`/registration`, {
-        email: name,
-        name: name,
-        password: pass,
-      })
-      .then((response) => {
-        console.log(response.data.access_token);
-      });
+  async registration(form) {
+    await instance.post(`/registration`, { ...form }).then((response) => {
+      console.log(response.data.access_token);
+    });
   },
 };
