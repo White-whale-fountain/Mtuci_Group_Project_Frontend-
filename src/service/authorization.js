@@ -9,6 +9,7 @@ const instance = axios.create({
 export const auth = {
   async login(form) {
     await instance.post(`/login`, { ...form }).then((response) => {
+
       console.log(response.data.access_token);
     });
   },

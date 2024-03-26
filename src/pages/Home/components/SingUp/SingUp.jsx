@@ -1,6 +1,5 @@
 import styles from "./SingUp.module.css";
-import { useEffect, useRef, useState } from "react";
-import FormInput from "../FormInput/FormInput.jsx";
+import { useEffect, useRef } from "react";
 import IsDoneButton from "../IsDoneButton/IsDoneButton.jsx";
 import closeImg from "../public/closeButton.jpg";
 import { useFormik } from "formik";
@@ -47,19 +46,19 @@ export default function SingUp({ open, onClose }) {
       if (!values.password) {
         errors.password = 'Поле "Пароль" обязательно';
       } else if (values.password.length < 6) {
-        errors.password = "Пароль должен содержать минимум 6 символов";
+        errors.password = "Минимум 6 символов в пароле";
       }
-
       if (!values.confirmPassword) {
         errors.confirmPassword = "Повторите пароль";
       } else if (values.password !== values.confirmPassword) {
         errors.confirmPassword = "Пароли не совпадают";
       }
-
       if (!values.age) {
         errors.age = 'Поле "Возраст" обязательно';
       }
-
+      if(!values.sex){
+        errors.sex = "Выберите пол"
+      }
       return errors;
     },
   });
@@ -71,7 +70,6 @@ export default function SingUp({ open, onClose }) {
       onClick={formClose}
     >
       <div onClick={(event) => event.stopPropagation()}>
-        {" "}
         {/* Передаем родителю функцию закрытия окна, но на содержимом диалога блокируем её */}
         <button onClick={formClose} className={styles.close_button}>
           <img src={closeImg} alt="Закрыть" />
@@ -81,11 +79,6 @@ export default function SingUp({ open, onClose }) {
           <form className={styles.chilren_form} onSubmit={formik.handleSubmit}>
             <div className={styles.form_inputs}>
               <label>
-                {formik.touched.login && formik.errors.login ? (
-                  <div className={styles.errors_container}>
-                    <p>{formik.errors.login}</p>
-                  </div>
-                ) : null}
                 <input
                   id="login"
                   placeholder={"Введите логин"}
@@ -95,13 +88,13 @@ export default function SingUp({ open, onClose }) {
                   onBlur={formik.handleBlur}
                   value={formik.values.login}
                 />
-              </label>
-              <label>
-                {formik.touched.name && formik.errors.name ? (
+                {formik.touched.login && formik.errors.login ? (
                   <div className={styles.errors_container}>
-                    <p>{formik.errors.name}</p>
+                    <p>{formik.errors.login}</p>
                   </div>
                 ) : null}
+              </label>
+              <label>
                 <input
                   id="name"
                   placeholder={"Введите имя"}
@@ -111,13 +104,13 @@ export default function SingUp({ open, onClose }) {
                   onBlur={formik.handleBlur}
                   value={formik.values.name}
                 />
-              </label>
-              <label>
-                {formik.touched.password && formik.errors.password ? (
+                {formik.touched.name && formik.errors.name ? (
                   <div className={styles.errors_container}>
-                    <p>{formik.errors.password}</p>
+                    <p>{formik.errors.name}</p>
                   </div>
                 ) : null}
+              </label>
+              <label>
                 <input
                   id="password"
                   placeholder={"Введите пароль"}
@@ -128,15 +121,14 @@ export default function SingUp({ open, onClose }) {
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
                 />
+                {formik.touched.password && formik.errors.password ? (
+                  <div className={styles.errors_container}>
+                    <p>{formik.errors.password}</p>
+                  </div>
+                ) : null}
               </label>
 
               <label>
-                {formik.touched.confirmPassword &&
-                formik.errors.confirmPassword ? (
-                  <div className={styles.errors_container}>
-                    <p>{formik.errors.confirmPassword}</p>
-                  </div>
-                ) : null}
                 <input
                   id="confirmPassword"
                   placeholder={"Повторите пароль"}
@@ -147,6 +139,12 @@ export default function SingUp({ open, onClose }) {
                   onBlur={formik.handleBlur}
                   value={formik.values.confirmPassword}
                 />
+                {formik.touched.confirmPassword &&
+                formik.errors.confirmPassword ? (
+                  <div className={styles.errors_container}>
+                    <p>{formik.errors.confirmPassword}</p>
+                  </div>
+                ) : null}
               </label>
             </div>
 
@@ -178,15 +176,15 @@ export default function SingUp({ open, onClose }) {
                   <span>М</span>
                 </label>
               </div>
+              {formik.touched.sex && formik.errors.sex ? (
+                  <div id = {styles.sex_error} className={styles.errors_container}>
+                    <p>{formik.errors.sex}</p>
+                  </div>
+                ) : null}
             </div>
 
             <div>
               <p>Укажите свой возраст</p>
-              {formik.touched.age && formik.errors.age ? (
-                <div className={styles.errors_container}>
-                  <p>{formik.errors.age}</p>
-                </div>
-              ) : null}
               <input
                 type="number"
                 className={styles.select_age_input}
@@ -197,6 +195,11 @@ export default function SingUp({ open, onClose }) {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
+              {formik.touched.age && formik.errors.age ? (
+                <div id = {styles.age_error} className={styles.errors_container}>
+                  <p>{formik.errors.age}</p>
+                </div>
+              ) : null}
             </div>
             <IsDoneButton />
           </form>

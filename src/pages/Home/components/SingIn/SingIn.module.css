@@ -47,12 +47,12 @@
     align-items: center;
 }
 
-.form_inputs{
+.form_inputs {
     display: flex;
     flex-direction: column;
-    gap:40px;
+    gap: 40px;
     margin-top: 10px;
-    margin-bottom: 20px ;
+    margin-bottom: 20px;
 }
 
 .footer_text {
@@ -68,17 +68,17 @@
 
 }
 
-.sing_up_button:hover{
+.sing_up_button:hover {
     text-decoration: underline;
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 10%;
-    scale: 70%;
-  }
-  100% {
-    opacity: 1;
-    scale: 1;
-  }
+    0% {
+        opacity: 10%;
+        scale: 70%;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
 }
