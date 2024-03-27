@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+  font-size: 100px;
+}
+
+.btn {
+  height: 100px;
+}
+
+.leave {
+  display: flex;
+  justify-content: center;
+}

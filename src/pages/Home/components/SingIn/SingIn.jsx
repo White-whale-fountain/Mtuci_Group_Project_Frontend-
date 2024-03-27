@@ -1,14 +1,19 @@
 import styles from "./SingIn.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import FormInput from "../FormInput/FormInput.jsx";
 import IsDoneButton from "../IsDoneButton/IsDoneButton.jsx";
 import closeImg from "../public/closeButton.jpg";
 import axios from "axios";
 import { auth } from "../../../../service/authorization.js";
+import { AuthContext } from "../../../../providers/AuthProvider.jsx";
+import { useNavigate } from "react-router-dom";
 
 // import { auth } from "../../../../service/authorization.js";
 
 export default function SingIn({ open, onClose }) {
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const dialogSingIn = useRef();
   useEffect(() => {
     if (open) {
@@ -37,12 +42,16 @@ export default function SingIn({ open, onClose }) {
     }));
   }
 
-  function formSubmit(event) {
+  async function formSubmit(event) {
     event.preventDefault();
+    const token = await auth.login(form);
+    return token
+      ? (setUser(form.login),
+        localStorage.setItem("user", JSON.stringify(form.login)),
+        navigate(`/:${form.login}`))
+      : console.log("gg");
     // console.log(name, pass);
     // console.log(typeof( JSON.stringify(form)));
-    return auth.login(form);
-
     // const data = JSON.stringify(form);
     // const pass = JSON.stringify(form.password);
     // return getData(data);

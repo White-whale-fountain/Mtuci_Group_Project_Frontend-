@@ -1,12 +1,17 @@
 import styles from "./SingUp.module.css";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import FormInput from "../FormInput/FormInput.jsx";
 import IsDoneButton from "../IsDoneButton/IsDoneButton.jsx";
 import closeImg from "../public/closeButton.jpg";
 import { useFormik } from "formik";
 import { auth } from "../../../../service/authorization.js";
+import { AuthContext } from "../../../../providers/AuthProvider.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function SingUp({ open, onClose }) {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(AuthContext);
+
   const dialogSingUp = useRef();
   useEffect(() => {
     if (open) {
@@ -34,7 +39,12 @@ export default function SingUp({ open, onClose }) {
     },
     onSubmit: (data) => {
       formClose();
-      return auth.registration(data);
+      const token = auth.registration(data);
+      return token
+        ? (setUser(data.login),
+          localStorage.setItem("user", JSON.stringify(data.login)),
+          navigate(`/${data.login}`))
+        : console.log("gg");
     },
     validate: (values) => {
       const errors = {};

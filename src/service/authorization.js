@@ -6,15 +6,34 @@ const instance = axios.create({
   headers: { "content-type": "application/json" },
 });
 
+// export const auth = {
+//   async login(form) {
+//     await instance.post(`/login`, { ...form }).then((response) => {
+//       return response.data.access_token;
+//     });
+//   },
+//   async registration(form) {
+//     await instance.post(`/registration`, { ...form }).then((response) => {
+//       console.log(response.data.access_token);
+//     });
+//   },
+// };
+
 export const auth = {
   async login(form) {
-    await instance.post(`/login`, { ...form }).then((response) => {
-      console.log(response.data.access_token);
-    });
+    try {
+      const response = await instance.post(`/login`, { ...form });
+      return response.data.access_token;
+    } catch (error) {
+      console.log(error);
+    }
   },
   async registration(form) {
-    await instance.post(`/registration`, { ...form }).then((response) => {
-      console.log(response.data.access_token);
-    });
+    try {
+      const response = await instance.post(`/registration`, { ...form });
+      return response.data.access_token;
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
