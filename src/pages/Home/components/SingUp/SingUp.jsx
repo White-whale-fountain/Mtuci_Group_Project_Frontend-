@@ -1,25 +1,15 @@
 import styles from "./SingUp.module.css";
-import { useEffect, useRef } from "react";
 import IsDoneButton from "../IsDoneButton/IsDoneButton.jsx";
 import closeImg from "../public/closeButton.jpg";
 import { useFormik } from "formik";
 import { auth } from "../../../../service/authorization.js";
+import {Link} from 'react-router-dom'
 
-export default function SingUp({ open, onClose }) {
-  const dialogSingUp = useRef();
-  useEffect(() => {
-    if (open) {
-      dialogSingUp.current.showModal();
-    } else {
-      dialogSingUp.current.close();
-    }
-  }, [open]);
-
+export default function SingUp() {
   function formClose() {
     formik.resetForm();
     formik.setErrors({});
     formik.setTouched({});
-    onClose();
   }
 
   const formik = useFormik({
@@ -65,14 +55,12 @@ export default function SingUp({ open, onClose }) {
 
   return (
     <dialog
-      ref={dialogSingUp}
+      open
       className={styles.dialog_singup}
-      onClick={formClose}
     >
-      <div onClick={(event) => event.stopPropagation()}>
-        {/* Передаем родителю функцию закрытия окна, но на содержимом диалога блокируем её */}
+      <div>
         <button onClick={formClose} className={styles.close_button}>
-          <img src={closeImg} alt="Закрыть" />
+          <Link to = "/"><img src={closeImg} alt="Закрыть" /></Link>
         </button>
         <div className={styles.main_block}>
           <p className={styles.header_text}>Регистрация</p>

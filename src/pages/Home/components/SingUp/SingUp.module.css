@@ -1,14 +1,15 @@
 .dialog_singup {
     width: 500px;
-    height: 680px;
+    height: 640px;
     z-index: 100;
     padding: 7px;
-    margin: 25px auto;
+    margin: 15px auto;
     border: None;
     border-radius: 10px;
     font: 500 23px Montserrat;
     line-height: 29px;
     letter-spacing: 0;
+    box-shadow: -10px 10px 100px 60px #ffffff33;
     animation: fadeIn 650ms;
 }
 

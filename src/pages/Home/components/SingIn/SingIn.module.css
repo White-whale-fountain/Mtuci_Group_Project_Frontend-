@@ -6,6 +6,7 @@
     margin: 60px auto;
     border: None;
     border-radius: 10px;
+    box-shadow: -10px 20px 100px 60px #ffffff33;
     animation: fadeIn 650ms;
 }
 
@@ -61,11 +62,11 @@
 }
 
 .sing_up_button {
+    color: black;
     border: None;
     background: None;
     cursor: pointer;
     font: 300 20px Montserrat;
-
 }
 
 .sing_up_button:hover {

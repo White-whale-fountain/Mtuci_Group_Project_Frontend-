@@ -1,22 +1,12 @@
 import styles from './SingIn.module.css'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import FormInput from '../FormInput/FormInput.jsx'
 import IsDoneButton from '../IsDoneButton/IsDoneButton.jsx'
 import closeImg from '../public/closeButton.jpg'
 import { auth } from '../../../../service/authorization.js'
+import { Link } from 'react-router-dom'
 
-// import { auth } from "../../../../service/authorization.js";
-
-export default function SingIn({ open, onClose }) {
-    const dialogSingIn = useRef()
-    useEffect(() => {
-        if (open) {
-            dialogSingIn.current.showModal()
-        } else {
-            dialogSingIn.current.close()
-        }
-    }, [open])
-
+export default function SingIn() {
     const [form, setForm] = useState({
         login: '',
         password: '',
@@ -38,28 +28,18 @@ export default function SingIn({ open, onClose }) {
 
     function formSubmit(event) {
         event.preventDefault()
-        // console.log(name, pass);
-        // console.log(typeof( JSON.stringify(form)));
         return auth.login(form)
-
-        // const data = JSON.stringify(form);
-        // const pass = JSON.stringify(form.password);
-        // return getData(data);
-        // Функция, отправляющая форму
     }
 
     return (
         <dialog
-            ref={dialogSingIn}
+            open = {true}
             className={styles.dialog_singin}
-            onClick={onClose}
         >
             <div onClick={(event) => event.stopPropagation()}>
-                {' '}
-                {/* Передаем родителю функцию закрытия окна, но на содержимом диалога блокируем её */}
-                <button onClick={onClose} className={styles.close_button}>
+                <Link to={"/"} className={styles.close_button}>
                     <img src={closeImg} alt='Закрыть' />
-                </button>
+                </Link>
                 <div className={styles.main_block}>
                     <p className={styles.header_text}>Войти</p>
                     <form className={styles.chilren_form} onSubmit={formSubmit}>
@@ -82,11 +62,9 @@ export default function SingIn({ open, onClose }) {
                         <p>
                             Нет аккаунта?
                             <br />
-                            <button onClick={onClose} className={styles.sing_up_button}>
-                                {' '}
-                                {/* СДЕЛАТЬ ПЕРЕХОД НА ФОРМУ С РЕГИСТРАЦИЕЙ */}
+                            <Link to={"/registration"} className={styles.sing_up_button}>
                                 Зарегистрируйся
-                            </button>
+                            </Link>
                         </p>
                     </div>
                 </div>

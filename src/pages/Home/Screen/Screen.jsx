@@ -1,14 +1,7 @@
 import styles from '../Screen/Screen.module.css'
-import { useState } from 'react'
-import SingUp from '../components/SingUp/SingUp.jsx'
+import { Link, Outlet } from 'react-router-dom'
 
 export default function Screen() {
-    const [singUp, setSingUp] = useState(false)
-
-    function buttonSingUpSet() {
-        setSingUp(prev => (!prev))
-    }
-
     return (
         <>
             <div>
@@ -18,12 +11,8 @@ export default function Screen() {
                 </h2>
             </div>
             <div className={styles.reg}>
-                <button className={styles.reg_btn} onClick={buttonSingUpSet}>Создать аккаунт</button>
+                <Link to = {'/registration'} className={styles.reg_btn}>Создать аккаунт</Link>
             </div>
-            <SingUp
-                open={singUp}
-                onClose={buttonSingUpSet}
-            />
         </>
     )
 }
