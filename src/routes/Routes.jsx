@@ -8,12 +8,11 @@ export default function () {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Home />}>
-              <Route path={"login"} element={<SingIn />}  />
-              <Route path={"registration"} element={<SingUp/>}  />
-              <Route path=":login/" element={<Profile />}  />
-              <Route path="*" element={<div>Not Found</div>} />
-          </Route>
+          <Route path="/" element={<Home />}/>
+          <Route path={"/login"} element={<SingIn />}  />
+          <Route path={"/registration"} element={<SingUp/>}  />
+          <Route path="/:login/" element={<Profile />}  />
+          <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </BrowserRouter>
   );
