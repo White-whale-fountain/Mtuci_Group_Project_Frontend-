@@ -1,11 +1,16 @@
 import styles from "./SingUp.module.css";
+import { useContext } from "react";
 import IsDoneButton from "../IsDoneButton/IsDoneButton.jsx";
 import closeImg from "../public/closeButton.jpg";
 import { useFormik } from "formik";
 import { auth } from "../../../../service/authorization.js";
+import { AuthContext } from "../../../../providers/AuthProvider.jsx";
+import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom'
 
 export default function SingUp() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(AuthContext);
   function formClose() {
     formik.resetForm();
     formik.setErrors({});
@@ -23,7 +28,12 @@ export default function SingUp() {
     },
     onSubmit: (data) => {
       formClose();
-      return auth.registration(data);
+      const token = auth.registration(data);
+      return token
+        ? (setUser(data.login),
+          localStorage.setItem("user", JSON.stringify(data.login)),
+          navigate(`/${data.login}`))
+        : console.log("gg");
     },
     validate: (values) => {
       const errors = {};
