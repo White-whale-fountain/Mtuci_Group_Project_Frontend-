@@ -29,7 +29,7 @@ export default function Profile() {
       <h1>{data.name}</h1>
       <div className={styles.info}>
         <h2>ВОЗРАСТ- {data.age}</h2>
-        <h2>ПОЛ - {data.sex == "Female" ? "ШЛЮХА ДЕШЕВАЯ" : "НОРМ КЕНТ"}</h2>
+        <h2>ПОЛ - {data.sex == "Female" ? "Девушка" : "Парень"}</h2>
       </div>
       <div className={styles.leave}>
         <Link to={"/"}>
