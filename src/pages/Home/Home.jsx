@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(() => {
     if (localStorage.getItem("user")) {
-      navigate("/:login");
+      navigate(`/${JSON.parse(localStorage.getItem("user"))}`);
     }
   }, []);
 

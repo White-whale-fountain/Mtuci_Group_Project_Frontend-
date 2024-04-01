@@ -11,7 +11,7 @@ export default function () {
         <Route path="/" element={<Home />} />
         <Route path={"/login"} element={<SingIn />} />
         <Route path={"/registration"} element={<SingUp />} />
-        <Route path="/:user/" element={<Profile />} />
+        <Route path="/:user" element={<Profile />} />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </BrowserRouter>
