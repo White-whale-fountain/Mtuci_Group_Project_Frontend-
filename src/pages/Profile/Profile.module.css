@@ -13,4 +13,10 @@
   justify-content: center;
 }
 
-
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin: 30px;
+  font: 900 20px Montserrat;
+}
