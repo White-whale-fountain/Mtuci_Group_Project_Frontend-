@@ -1,6 +1,7 @@
-h1 {
-  text-align: center;
-  font-size: 100px;
+.profile{
+  display: flex;
+  width: 1480px;
+  height: 600px;
 }
 
 .btn {
@@ -11,3 +12,5 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+

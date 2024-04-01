@@ -1,21 +1,21 @@
-import styles from "./SingUp.module.css";
-import { useContext } from "react";
-import IsDoneButton from "../IsDoneButton/IsDoneButton.jsx";
-import closeImg from "../public/closeButton.jpg";
-import { useFormik } from "formik";
-import { auth } from "../../../../service/authorization.js";
-import { AuthContext } from "../../../../providers/AuthProvider.jsx";
-import { useNavigate } from "react-router-dom";
-import {Link} from 'react-router-dom'
+import styles from './SingUp.module.css'
+import { useContext } from 'react'
+import IsDoneButton from '../IsDoneButton/IsDoneButton.jsx'
+import closeImg from '../public/closeButton.jpg'
+import { useFormik } from 'formik'
+import { auth } from '../../../../service/authorization.js'
+import { AuthContext } from '../../../../providers/AuthProvider.jsx'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function SingUp() {
-  const navigate = useNavigate();
-  const { user, setUser } = useContext(AuthContext);
-  function formClose() {
-    formik.resetForm();
-    formik.setErrors({});
-    formik.setTouched({});
-  }
+    const navigate = useNavigate()
+    const { user, setUser } = useContext(AuthContext)
+
+    function formClose() {
+        formik.resetForm()
+        formik.setErrors({})
+        formik.setTouched({})
+    }
 
   const formik = useFormik({
     initialValues: {
@@ -33,7 +33,7 @@ export default function SingUp() {
         ? (setUser(data.login),
           localStorage.setItem("user", JSON.stringify(data.login)),
           navigate(`/${data.login}`))
-        : console.log("gg");
+        : console.log("Ошибка");
     },
     validate: (values) => {
       const errors = {};
@@ -64,28 +64,31 @@ export default function SingUp() {
   });
 
   return (
-    <dialog
-      open
-      className={styles.dialog_singup}
-    >
-      <div>
-        <button onClick={formClose} className={styles.close_button}>
-          <Link to = "/"><img src={closeImg} alt="Закрыть" /></Link>
-        </button>
-        <div className={styles.main_block}>
+      <div className={styles.box}>
+          <dialog open className={styles.dialog_singup}>
+          <div>
+              <button onClick={formClose} className={styles.close_button}>
+                  <Link to='/'>
+                      <img src={closeImg} alt='Закрыть' />
+                  </Link>
+              </button>
+          <div className={styles.main_block}>
           <p className={styles.header_text}>Регистрация</p>
-          <form className={styles.chilren_form} onSubmit={formik.handleSubmit}>
-            <div className={styles.form_inputs}>
+          <form
+              className={styles.chilren_form}
+              onSubmit={formik.handleSubmit}
+          >
+          <div className={styles.form_inputs}>
               <label>
-                <input
-                  id="login"
-                  placeholder={"Введите логин"}
-                  className={styles.form_input}
-                  name={"login"}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  value={formik.values.login}
-                />
+                  <input
+                      id='login'
+                      placeholder={'Введите логин'}
+                      className={styles.form_input}
+                      name={'login'}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      value={formik.values.login}
+                  />
                 {formik.touched.login && formik.errors.login ? (
                   <div className={styles.errors_container}>
                     <p>{formik.errors.login}</p>
@@ -125,7 +128,6 @@ export default function SingUp() {
                   </div>
                 ) : null}
               </label>
-
               <label>
                 <input
                   id="confirmPassword"
@@ -145,7 +147,6 @@ export default function SingUp() {
                 ) : null}
               </label>
             </div>
-
             <div>
               <p>Укажите свой пол</p>
               <div className={styles.sex_choice}>
@@ -204,5 +205,6 @@ export default function SingUp() {
         </div>
       </div>
     </dialog>
-  );
+  </div>
+  )
 }

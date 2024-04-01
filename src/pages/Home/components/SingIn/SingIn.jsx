@@ -36,8 +36,8 @@ export default function SingIn() {
     return token
       ? (setUser(form.login),
         localStorage.setItem("user", JSON.stringify(form.login)),
-        navigate(`/:${form.login}`))
-      : console.log("gg");
+        navigate(`/${form.login}`))
+      : console.log("Ошибка при регистрации");
   }
 
   return (
