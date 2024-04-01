@@ -1,8 +1,7 @@
-
 .head {
   display: flex;
   justify-content: space-between;
-  margin-top: 16px;
+  padding-top: 16px;
   min-height: 164px;
   /* background-color: red; */
 }
@@ -17,11 +16,12 @@
   margin-left: 65px;
   height: 84.06px;
   margin-top: 6px;
+  gap: 0;
 }
 
 .name {
   margin-top: 12px;
-  font: 700 36px "Montserrat";
+  font: 700 30px "Montserrat";
   color: white;
   line-height: 43.88px;
 }

@@ -1,6 +1,9 @@
-body {
-    background-image: url("/src/assets/img/people1.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-
+.box {
+  background-image: url("/src/assets/img/people1.png");
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  /* min-width: 100vh; */
+  background-size: 100% 100%;
+  margin: 0;
+  padding: 0;
 }

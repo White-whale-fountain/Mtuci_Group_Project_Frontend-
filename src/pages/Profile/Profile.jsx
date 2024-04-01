@@ -1,11 +1,23 @@
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Profile.module.css";
-import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { profile } from "../../service/profile";
 
 export default function Profile() {
-  const { user, setUser } = useContext(AuthContext);
-  // const navigate = useNavigate();
+  const login = JSON.parse(localStorage.getItem("user"));
+  const [data, setData] = useState([]);
+
+  // async function sendProf(user) {
+  //   return await profile(user);
+  // }
+  // const age = "";
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await profile(login);
+      setData(data);
+    };
+    fetchData();
+  }, []);
 
   function leave() {
     return localStorage.removeItem("user");
@@ -13,13 +25,19 @@ export default function Profile() {
 
   return (
     <>
-      <h1>{JSON.parse(localStorage.getItem("user"))}</h1>
+      {/* {console.log(data)} */}
+      <h1>{data.name}</h1>
+      <div className={styles.info}>
+        <h2>ВОЗРАСТ- {data.age}</h2>
+        <h2>ПОЛ - {data.sex == "Female" ? "ШЛЮХА ДЕШЕВАЯ" : "НОРМ КЕНТ"}</h2>
+      </div>
       <div className={styles.leave}>
         <Link to={"/"}>
           <button onClick={leave} className={styles.btn}>
             Выйти из аккаунта
           </button>
         </Link>
+        {/* <button onClick={() => sendProf(login)}>Получить данные</button> */}
       </div>
     </>
   );
