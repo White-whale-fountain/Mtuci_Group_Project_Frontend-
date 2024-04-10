@@ -1,0 +1,27 @@
+.preferences_list{
+    list-style: none;
+    display: flex;
+    gap: 85px;
+    flex-wrap: wrap;
+    margin: 50px;
+}
+
+.preferences_list_item button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.preferences_list_item p{
+    font: 600 14px Montserrat;
+    color: #A3A3A3;
+}
+
+.preferences_list_item_header{
+    display: flex;
+}
+
+.preferences_list_item_header p{
+    font: 700 15px Montserrat;
+    color: black;
+}

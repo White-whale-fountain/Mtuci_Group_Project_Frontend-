@@ -1,0 +1,15 @@
+.profile_description_main{
+    width: 740px;
+    max-height: 430px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 14px 3px #00000046;
+    z-index: 101;
+    margin-top: -130px;
+    padding: 10px;
+    position: relative;
+}
+.profile_description_main hr{
+    width: 90%;
+    margin: auto;
+}

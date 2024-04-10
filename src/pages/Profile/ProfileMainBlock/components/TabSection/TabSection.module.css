@@ -1,0 +1,40 @@
+.tab_section{
+    display: flex;
+    font: 500 20px Montserrat;
+    width: 100%;
+    justify-content: space-around;
+    line-height: 25px;
+    margin-bottom: 5px;
+}
+
+.tab_section_button{
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.tab_section_button_active{
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: shaked_button 1s;
+    font-weight: bold;
+    background: #26A0F82a;
+}
+
+@keyframes shaked_button {
+    0%{
+        transform: translate3d(0,0,0) ;
+    }
+    15%{
+        transform: translate3d(-3px,-3px,0) ;
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}

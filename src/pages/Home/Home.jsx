@@ -3,7 +3,6 @@ import "./Home.module.css";
 import Home_Header from "./Home_Header/Home_Header";
 import Screen from "./Screen/Screen";
 import { useNavigate } from "react-router-dom";
-import "./Home.module.css";
 import { Outlet } from "react-router-dom";
 import styles from "./Home.module.css";
 

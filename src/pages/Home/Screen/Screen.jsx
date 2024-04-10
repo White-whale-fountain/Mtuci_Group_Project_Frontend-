@@ -1,4 +1,4 @@
-import styles from '../Screen/Screen.module.css'
+import styles from './Screen.module.css'
 import { Link } from 'react-router-dom'
 
 export default function Screen() {
