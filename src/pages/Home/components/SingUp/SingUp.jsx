@@ -26,11 +26,13 @@ export default function SingUp() {
       sex: "",
       age: "",
     },
-    onSubmit: (data) => {
+    onSubmit: async (data) => {
       formClose();
-      const token = auth.registration(data);
+      delete data["confirmPassword"];
+      const token = await auth.registration(data);
       return token
         ? (setUser(data.login),
+          console.log(data),
           localStorage.setItem("user", JSON.stringify(data.login)),
           navigate(`/${data.login}`))
         : console.log("gg");
