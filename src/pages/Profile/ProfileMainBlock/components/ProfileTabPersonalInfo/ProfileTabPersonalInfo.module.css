@@ -1,0 +1,65 @@
+.main_section{
+    padding: 20px;
+    display: flex;
+    margin-top: 20px ;
+    margin-left: 10px;
+    height: 320px;
+}
+
+.img_placeholder{
+    display: grid;
+    width: 140px;
+    height: 210px;
+    justify-items: center;
+}
+
+.img_placeholder_button{
+    width: 80%;
+    font: 500 12px Montserrat;
+    background-color: #26A0F8;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.img_placeholder_button:hover{
+    background-color: #26A0F8dd;
+    transition: all 0.4s;
+}
+
+.profile_info_main{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font: 700 14px  Montserrat;
+    list-style: none;
+    padding-left: 35px;
+    width: 300px;
+    height: 300px;
+}
+
+.profile_info_main p{
+    padding-top: 5px;
+    font: 600 13px  Montserrat;
+    color: #A3A3A3;
+}
+.profile_info_main_li{
+    padding-bottom: 30px;
+    max-width: 260px;
+    margin-right: 35px;
+}
+
+.change_profile_info{
+    width: 100px;
+    height: 35px;
+    background-color: #FF0000d1;
+    color: #FFFFFF;
+    font: 600 14px Montserrat;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+}

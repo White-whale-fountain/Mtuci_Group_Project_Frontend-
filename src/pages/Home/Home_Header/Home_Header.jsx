@@ -1,14 +1,6 @@
 import styles from '../Home_Header/Home_Header.module.css'
-import SingIn from '../components/SingIn/SingIn.jsx'
-import { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 export default function Home_Header() {
-    // const [singIn, setSingIn] = useState(false)
-    //
-    // function buttonSingInSet() {
-    //     setSingIn(prev => (!prev))
-    // }
-
     return (
         <>
             <header className={styles.head}>

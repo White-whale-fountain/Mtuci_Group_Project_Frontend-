@@ -1,0 +1,40 @@
+.preferences_main_block{
+    display: flex;
+    align-items: center;
+    height: 220px;
+    flex-direction: column;
+    gap: 80px;
+    padding-top: 40px;
+    position: relative;
+}
+
+.preferences_main_block p{
+    font: 600 24px Montserrat;
+    align-items: center;
+    justify-items: center;
+    z-index: 104;
+}
+
+.preferences_main_block button{
+    width: 175px;
+    height: 40px;
+    font: 700 20px Montserrat;
+    background-color: #26A0F8;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 104;
+}
+
+.preferences_main_block button:hover{
+    background-color: #26A0F8dd;
+    transition: all 0.4s;
+}
+
+.preferences_main_block img{
+    position: absolute;
+    z-index: 103;
+    left: 0;
+    bottom: 0;
+}

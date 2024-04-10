@@ -1,7 +1,15 @@
 .profile_main_block {
-    width: 1280px;
-    height: 629px;
+    height: 87%;
     background: #F4F4F466;
-    border: 1px solid black;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.profile_main_background{
+    width: 100%;
+    box-sizing: border-box;
+    height: 220px;
+    opacity: 0.9;
+    z-index: 100;
 }

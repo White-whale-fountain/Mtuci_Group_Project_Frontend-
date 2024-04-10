@@ -1,7 +1,120 @@
 .profile_header {
-    width: 1280px;
-    height: 100px;
-    border: 1px solid black;
+    height: 13%;
     background: #F4F4F466;
     box-sizing: border-box;
+    padding-left: 82px;
+    padding-top: 20px;
+    display: flex;
+    box-shadow: 2px 1px 1px 0.5px #0000001A;
+;
+}
+
+.profile_header_profile{
+    width: 122px;
+    height: 37px;
+    margin-top: 7px;
+}
+
+.profile_header_notifications{
+    width: 17px;
+    height: 20px;
+    margin-left: 950px;
+    margin-right: 30px;
+    padding-bottom: 7px ;
+    margin-top: 16px;
+}
+.profile_menu{
+    position: relative;
+}
+
+.profile_header_dropdown{
+    background: none;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 5px;
+}
+
+.profile_header_dropdown:hover {
+    background: #D3D3D366;
+    transition: all 1s;
+}
+
+.profile_user_img{
+    border-radius: 25px;
+    box-shadow: 3px 4px 7px 0 #00000055;
+}
+
+.dropdown_button_vector{
+    margin-left: 5px;
+    margin-bottom: 15px;
+    width: 15px;
+    height: 7px;
+}
+
+.profile_menu_list{
+    position: absolute;
+    margin-left: -70px;
+    padding: 10px;
+    background: #ffffff;
+    list-style: none;
+    width: 170px;
+    height: 210px;
+    text-align: center;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    z-index: 103;
+    animation: fadeIn 0.4s;
+}
+
+.profile_menu_list hr{
+    animation: fadeInHr 0.3s;
+}
+
+.profile_menu_listitem{
+    font: 500 20px Montserrat;
+    width: 170px;
+    height: 65px;
+    line-height: 65px;
+    background: #fffffe;
+    align-items: center;
+    box-sizing: border-box;
+    color: #000000af;
+    cursor: pointer;
+    animation: fadeIn 0.3s;
+}
+
+.profile_menu_leave_button{
+    font: 500 20px Montserrat;
+    border: None;
+    margin: 0;
+    cursor: pointer;
+    background: #fffffe;
+    color: #000000af;
+    border-radius: 5px;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0.8;
+        scale: 0.8;
+        transform: translateY(-20px);
+    }
+    100%{
+        scale: 1;
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeInHr {
+    0%{
+        opacity: 0;
+    }
+    30%{
+        opacity: 0.1;
+    }
+    100%{
+        opacity: 1;
+    }
 }
