@@ -1,15 +1,15 @@
 .profile_main_block {
-    height: 87%;
-    background: #F4F4F466;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  height: 87%;
+  background: #f4f4f466;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-.profile_main_background{
-    width: 100%;
-    box-sizing: border-box;
-    height: 220px;
-    opacity: 0.9;
-    z-index: 100;
+.profile_main_background {
+  width: 100%;
+  box-sizing: border-box;
+  height: 220px;
+  opacity: 0.9;
+  z-index: 100;
 }
