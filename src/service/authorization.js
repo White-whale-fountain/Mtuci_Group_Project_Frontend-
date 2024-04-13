@@ -4,7 +4,7 @@ export const auth = {
   async login(form) {
     try {
       const response = await instance.post(`/login`, { ...form });
-      return response;
+      return response.data.access_token;
     } catch (error) {
       console.log(error);
     }

@@ -1,27 +1,86 @@
-.preferences_list{
-    list-style: none;
-    display: flex;
-    gap: 85px;
-    flex-wrap: wrap;
-    margin: 50px;
+.preferences_list {
+  list-style: none;
+  display: flex;
+  gap: 85px;
+  flex-wrap: wrap;
+  margin: 50px;
 }
 
-.preferences_list_item button{
-    background: none;
-    border: none;
-    cursor: pointer;
+.edit {
+  font: 600 14px Montserrat;
+  margin-top: 10px;
+  width: 120px;
+  background-color: #e3e3e3;
+  border: 1;
+  border-radius: 5px;
+  text-align: center;
+  height: 22px;
 }
 
-.preferences_list_item p{
-    font: 600 14px Montserrat;
-    color: #A3A3A3;
+.edit:active {
+  border: none;
 }
 
-.preferences_list_item_header{
-    display: flex;
+.preferences_list_item button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.preferences_list_item_header p{
-    font: 700 15px Montserrat;
-    color: black;
+.preferences_list_item p {
+  font: 600 14px Montserrat;
+  color: #a3a3a3;
+}
+
+.preferences_list_item_header {
+  display: flex;
+}
+
+.preferences_list_item_header p {
+  font: 700 15px Montserrat;
+  color: black;
+}
+
+.change_profile_info {
+  width: 100px;
+  height: 35px;
+  background-color: #ff0000d1;
+  color: #ffffff;
+  font: 600 14px Montserrat;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  cursor: pointer;
+}
+
+.save_or_cancel_info {
+  display: flex;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+  gap: 10px;
+}
+
+.save_info {
+  width: 100px;
+  height: 35px;
+  background-color: #5dc42ad1;
+  color: #ffffff;
+  font: 600 14px Montserrat;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancel_info {
+  width: 100px;
+  height: 35px;
+  background-color: #ff0000d1;
+  color: #ffffff;
+  font: 600 14px Montserrat;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
