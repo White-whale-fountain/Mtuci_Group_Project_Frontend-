@@ -5,7 +5,7 @@ import closeImg from "../public/closeButton.jpg";
 import { useFormik } from "formik";
 import { auth } from "../../../../service/authorization.js";
 import { AuthContext } from "../../../../providers/AuthProvider.jsx";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SingUp() {
   const navigate = useNavigate();
@@ -31,7 +31,6 @@ export default function SingUp() {
       const token = await auth.registration(data);
       return token
         ? (setUser(data.login),
-          console.log(data),
           localStorage.setItem("user", JSON.stringify(data.login)),
           navigate(`/${data.login}`))
         : console.log("gg");
@@ -57,8 +56,8 @@ export default function SingUp() {
       if (!values.age) {
         errors.age = 'Поле "Возраст" обязательно';
       }
-      if(!values.sex){
-        errors.sex = "Выберите пол"
+      if (!values.sex) {
+        errors.sex = "Выберите пол";
       }
       return errors;
     },

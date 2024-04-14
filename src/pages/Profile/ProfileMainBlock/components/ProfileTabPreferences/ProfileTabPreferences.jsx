@@ -5,11 +5,11 @@ export default function ProfileTabPreferences() {
   const [edit, setEdit] = useState(false);
 
   const [preferences, setPreferences] = useState([
-    { id: 0, state: "age", header: "Возраст", value: "18-20 лет" },
-    { id: 1, state: "height", header: "Рост", value: "Неважно" },
-    { id: 2, state: "weight", header: "Вес", value: "Неважно" },
-    { id: 3, state: "habits", header: "Вредные привычки", value: "Неважно" },
-    { id: 4, state: "orientation", header: "Ориентация", value: "ПИДР" },
+    { id: 0, state: "age", header: "Возраст:", value: "18-20 лет" },
+    { id: 1, state: "height", header: "Рост:", value: "Неважно" },
+    { id: 2, state: "weight", header: "Вес:", value: "Неважно" },
+    { id: 3, state: "habits", header: "Вредные привычки:", value: "Неважно" },
+    { id: 4, state: "orientation", header: "Ориентация:", value: "ПИДР" },
   ]);
 
   const [nowPreferences, setNowPreferences] = useState(preferences);
