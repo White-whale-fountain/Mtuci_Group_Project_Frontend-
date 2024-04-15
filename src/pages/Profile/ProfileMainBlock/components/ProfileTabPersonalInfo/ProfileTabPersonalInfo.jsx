@@ -40,6 +40,8 @@ export default function ProfileTabPersonalInfo() {
 
   const [nowPersonalInfo, setNowPersonalInfo] = useState(personalInfo);
 
+  function SaveInfo() {}
+
   function EditInfo(e, id) {
     const updatePersonalInfo = personalInfo.map((pref) =>
       pref.id === id ? { ...pref, value: e.target.value } : pref

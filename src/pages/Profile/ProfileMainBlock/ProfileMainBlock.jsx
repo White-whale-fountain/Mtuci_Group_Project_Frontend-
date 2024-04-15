@@ -10,7 +10,7 @@ export default function ProfileMainBlock() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await profile(login);
+      const data = await profile.card(login);
       setData(data);
     };
     fetchData();

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ProfileTabPreferences.module.css";
 
 export default function ProfileTabPreferences() {
@@ -44,6 +44,10 @@ export default function ProfileTabPreferences() {
     // setPreferences[id].value(e.target.value);
     // console.log(el.target.value);
   }
+
+  useEffect(() => {
+    console.log(preferences);
+  }, []);
 
   return (
     <>
