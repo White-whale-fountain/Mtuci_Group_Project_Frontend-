@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ProfileTabPersonalInfo.module.css";
+import { profile } from "../../../../../service/profile";
 
 // function ProfilePersonalInfoItems({ header, info }) {
 //   return (
@@ -11,42 +12,33 @@ import styles from "./ProfileTabPersonalInfo.module.css";
 // }
 
 export default function ProfileTabPersonalInfo() {
+  const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
 
-  const [personalInfo, setPersonalInfo] = useState([
-    {
-      id: 0,
-      state: "about me",
-      header: "О себе:",
-      value:
-        "Я веселый человек, который всегда поможет побороть грустное настроение. Могу поддержать в сложной ситуации, выслушать. Ко всем вопросам подхожу с ответственностью, стараюсь всегда быть объективным",
-    },
-    {
-      id: 1,
-      state: "interests",
-      header: "Интересы:",
-      value: "Кино, путешествия, книги",
-    },
-    { id: 2, state: "zodiac sign", header: "Знак зодиака:", value: "Овен" },
-    { id: 3, state: "height", header: "Вредные Рост:", value: "180 см" },
-    { id: 4, state: "chlen", header: "Член:", value: "17" },
-    {
-      id: 5,
-      state: "career and education",
-      header: "Карьера и образование:",
-      value: "Фронтендер",
-    },
-  ]);
+  const [personalInfo, setPersonalInfo] = useState([]);
 
+  useEffect(() => {
+    async function takeInfo() {
+      setPersonalInfo(await profile.take("user_info", user));
+    }
+    takeInfo();
+  }, []);
   const [nowPersonalInfo, setNowPersonalInfo] = useState(personalInfo);
 
-  function SaveInfo() {}
-
-  function EditInfo(e, id) {
-    const updatePersonalInfo = personalInfo.map((pref) =>
-      pref.id === id ? { ...pref, value: e.target.value } : pref
+  async function SaveInfo() {
+    return (
+      setEdit(false),
+      setNowPersonalInfo(personalInfo),
+      await profile.put("user_info", user, personalInfo)
     );
-    setPersonalInfo(updatePersonalInfo);
+  }
+
+  function EditInfo(e, name) {
+    const updatePersonalInfo = Object.entries(personalInfo).map(
+      ([key, value]) =>
+        key === name ? [key, [value[0], e.target.value]] : [key, value]
+    );
+    setPersonalInfo(Object.fromEntries(updatePersonalInfo));
   }
 
   return (
@@ -58,22 +50,23 @@ export default function ProfileTabPersonalInfo() {
           className={styles.img_placeholder_photo}
         />
         <button className={styles.img_placeholder_button}>Добавить фото</button>
+        {/* {Object.values(info).map((e) => console.log(e[0]))} */}
       </div>
       <div>
         <ul className={styles.profile_info_main}>
-          {personalInfo.map((el) => {
+          {Object.entries(personalInfo).map(([key, value]) => {
             return (
-              <li key={el.state} className={styles.profile_info_main_li}>
-                {el.header}
+              <li key={key} className={styles.profile_info_main_li}>
+                {value[0]}
                 {!edit ? (
-                  <p>{el.value}</p>
+                  <p>{value[1]}</p>
                 ) : (
                   <>
                     <br />
                     <input
-                      value={el.value}
+                      value={value[1]}
                       className={styles.edit}
-                      onChange={(e) => EditInfo(e, el.id)}
+                      onChange={(e) => EditInfo(e, key)}
                     />
                   </>
                 )}
@@ -111,7 +104,7 @@ export default function ProfileTabPersonalInfo() {
           <button
             className={styles.save_info}
             onClick={() => {
-              setEdit(false), setNowPersonalInfo(personalInfo);
+              SaveInfo();
             }}
           >
             Сохранить

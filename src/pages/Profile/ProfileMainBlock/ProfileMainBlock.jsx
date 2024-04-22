@@ -3,6 +3,7 @@ import { profile } from "../../../service/profile.js";
 import { useState, useEffect } from "react";
 import ProfileCard from "./components/ProfileCard/ProfileCard.jsx";
 import ProfileDescription from "./components/ProfileDescription/ProfileDescription.jsx";
+import Modal from "./components/ProfileCard/Modal/Modal.jsx";
 
 export default function ProfileMainBlock() {
   const login = JSON.parse(localStorage.getItem("user"));

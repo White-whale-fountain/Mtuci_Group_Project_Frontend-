@@ -3,50 +3,30 @@ import { instance } from "../instances/rules_auth";
 export const profile = {
   async card(user) {
     try {
-      const response = await instance.post("/profile", { login: user });
+      const response = await instance.get(`/profile/${user}`);
       return response.data;
     } catch (error) {
       console.log(error);
     }
   },
-  async about_me(user_login) {
+  async take(path, user) {
     try {
-      const response = await instance.post("/user_info", {
-        login: user_login,
-        about_me: "",
-        interests: "",
-        z: "",
-        height: "",
-        education: "",
-      });
-      return console.log(response);
+      const response = await instance.get(`/${path}/${user}`);
+      return response.data;
     } catch (error) {
       console.log(error);
     }
   },
-  async about_me_save(user_login) {
+  async put(path, user, form) {
+    console.log(form);
     try {
-      const response = await instance.put("/user_info", {
-        login: user_login,
-        about_me: "1",
-        interests: "1",
-        z: "1",
-        height: "1",
-        education: "1",
-      });
-      return console.log(response);
+      const response = await instance.put(`/${path}/${user}`, { ...form });
+      return response.data;
     } catch (error) {
       console.log(error);
     }
   },
-  async about_me_take(user) {
-    try {
-      const response = await instance.get(`/user_info/${user}`);
-      return console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  },
+
   // async about_me(user) {
   //   try {
   //     const response = await instance.get("/user_info", { login: user });

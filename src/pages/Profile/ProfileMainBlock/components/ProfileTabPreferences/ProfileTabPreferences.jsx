@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import styles from "./ProfileTabPreferences.module.css";
+import { profile } from "../../../../../service/profile";
 
 export default function ProfileTabPreferences() {
+  const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
 
-  const [preferences, setPreferences] = useState([
-    { id: 0, state: "age", header: "Возраст:", value: "18-20 лет" },
-    { id: 1, state: "height", header: "Рост:", value: "Неважно" },
-    { id: 2, state: "weight", header: "Вес:", value: "Неважно" },
-    { id: 3, state: "habits", header: "Вредные привычки:", value: "Неважно" },
-    { id: 4, state: "orientation", header: "Ориентация:", value: "ПИДР" },
-  ]);
-
+  const [preferences, setPreferences] = useState([]);
   const [nowPreferences, setNowPreferences] = useState(preferences);
+
+  useEffect(() => {
+    async function takeInfo() {
+      setPreferences(await profile.take("user_preferences", user));
+    }
+    takeInfo();
+  }, []);
 
   // function EditInfo() {}
 
@@ -33,37 +35,38 @@ export default function ProfileTabPreferences() {
   //     </li>
   //   );
   // }
-
-  function CancelEdit() {}
-  // console.log(nowPreferences);
-  function EditInfo(e, id) {
-    const updatePreferences = preferences.map((pref) =>
-      pref.id === id ? { ...pref, value: e.target.value } : pref
+  async function SaveInfo() {
+    return (
+      setEdit(false),
+      setNowPreferences(preferences),
+      await profile.put("user_preferences", user, preferences)
     );
-    setPreferences(updatePreferences);
+  }
+
+  function EditInfo(e, name) {
+    const updatePreferences = Object.entries(preferences).map(([key, value]) =>
+      key === name ? [key, [value[0], e.target.value]] : [key, value]
+    );
+    setPreferences(Object.fromEntries(updatePreferences));
     // setPreferences[id].value(e.target.value);
     // console.log(el.target.value);
   }
 
-  useEffect(() => {
-    console.log(preferences);
-  }, []);
-
   return (
     <>
       <ul className={styles.preferences_list}>
-        {preferences.map((el) => (
-          <li key={el.state} className={styles.preferences_list_item}>
+        {Object.entries(preferences).map(([key, value]) => (
+          <li key={key} className={styles.preferences_list_item}>
             <div className={styles.preferences_list_item_header}>
-              <p>{el.header}</p>
+              <p>{value[0]}</p>
             </div>
             {!edit ? (
-              <p>{el.value}</p>
+              <p>{value[1]}</p>
             ) : (
               <input
-                value={el.value}
+                value={value[1]}
                 className={styles.edit}
-                onChange={(e) => EditInfo(e, el.id)}
+                onChange={(e) => EditInfo(e, key)}
               />
             )}
           </li>
@@ -105,7 +108,7 @@ export default function ProfileTabPreferences() {
           <button
             className={styles.save_info}
             onClick={() => {
-              setEdit(false), setNowPreferences(preferences);
+              SaveInfo();
             }}
           >
             Сохранить
