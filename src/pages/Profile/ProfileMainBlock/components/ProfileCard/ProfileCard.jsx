@@ -1,15 +1,8 @@
-import { useContext, useState } from "react";
 import styles from "./ProfileCard.module.css";
-import { EditContext } from "../../../../../providers/EditProvider";
 
 export default function ProfileCard(props) {
-  const { setModalActive } = useContext(EditContext);
-
   return (
     <div className={styles.profile_card_main}>
-      <button className={styles.edit} onClick={() => setModalActive(true)}>
-        <img src="/../../src/assets/img/profile_pensil.png" alt="" />
-      </button>
       <div className={styles.profile_card_main_header}>
         <img src="/../../src/assets/img/people1.png" alt="" />
         <p>{props.children.name + ", " + props.children.age}</p>

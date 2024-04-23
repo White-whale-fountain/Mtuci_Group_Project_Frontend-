@@ -2,20 +2,11 @@ import { useEffect, useState } from "react";
 import styles from "./ProfileTabPersonalInfo.module.css";
 import { profile } from "../../../../../service/profile";
 
-// function ProfilePersonalInfoItems({ header, info }) {
-//   return (
-//     <li className={styles.profile_info_main_li}>
-//       {header}
-//       <p>{info}</p>
-//     </li>
-//   );
-// }
-
 export default function ProfileTabPersonalInfo() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
-
   const [personalInfo, setPersonalInfo] = useState([]);
+  const [nowPersonalInfo, setNowPersonalInfo] = useState(personalInfo);
 
   useEffect(() => {
     async function takeInfo() {
@@ -23,7 +14,6 @@ export default function ProfileTabPersonalInfo() {
     }
     takeInfo();
   }, []);
-  const [nowPersonalInfo, setNowPersonalInfo] = useState(personalInfo);
 
   async function SaveInfo() {
     return (
@@ -33,12 +23,17 @@ export default function ProfileTabPersonalInfo() {
     );
   }
 
-  function EditInfo(e, name) {
-    const updatePersonalInfo = Object.entries(personalInfo).map(
-      ([key, value]) =>
-        key === name ? [key, [value[0], e.target.value]] : [key, value]
-    );
-    setPersonalInfo(Object.fromEntries(updatePersonalInfo));
+  function UpdatedPersonalInfo(property, value) {
+    const updatePersonalInfo = { ...personalInfo };
+    updatePersonalInfo[property] = value;
+    return updatePersonalInfo;
+  }
+
+  function EditInfo(e) {
+    const property = e.target.name;
+    const value = e.target.value;
+    const updatePersonalInfo = UpdatedPersonalInfo(property, value);
+    setPersonalInfo(updatePersonalInfo);
   }
 
   return (
@@ -50,48 +45,43 @@ export default function ProfileTabPersonalInfo() {
           className={styles.img_placeholder_photo}
         />
         <button className={styles.img_placeholder_button}>Добавить фото</button>
-        {/* {Object.values(info).map((e) => console.log(e[0]))} */}
       </div>
-      <div>
-        <ul className={styles.profile_info_main}>
-          {Object.entries(personalInfo).map(([key, value]) => {
-            return (
-              <li key={key} className={styles.profile_info_main_li}>
-                {value[0]}
-                {!edit ? (
-                  <p>{value[1]}</p>
-                ) : (
-                  <>
-                    <br />
-                    <input
-                      value={value[1]}
-                      className={styles.edit}
-                      onChange={(e) => EditInfo(e, key)}
-                    />
-                  </>
-                )}
-              </li>
-            );
-          })}
-          {/* <ProfilePersonalInfoItems
-            header={"Обо мне:"}
-            info={
-              "Я веселый человек, который всегда поможет побороть грустное настроение. Могу поддержать в сложной ситуации, выслушать. Ко всем вопросам подхожу с ответственностью, стараюсь всегда быть объективным"
-            }
-          />
-          <ProfilePersonalInfoItems
-            header={"Интересы:"}
-            info={"Кино, путешествия, книги"}
-          />
-          <ProfilePersonalInfoItems header={"Знак зодиака:"} info={"Овен"} />
-          <ProfilePersonalInfoItems header={"Рост:"} info={"180 см"} />
-          <ProfilePersonalInfoItems header={"Член:"} info={"17 см"} />
-          <ProfilePersonalInfoItems
-            header={"Карьера и образование:"}
-            info={"Frontend development"}
-          /> */}
-        </ul>
-      </div>
+      <ul className={styles.profile_info_main}>
+        <li className={styles.profile_info_main_li}>
+          О себе:
+          {!edit ? (
+            <p>{personalInfo.about_me}</p>
+          ) : (
+            <>
+              <br />
+              <input
+                value={personalInfo.about_me}
+                className={styles.edit}
+                name="about_me"
+                onChange={(e) => EditInfo(e)}
+              />
+            </>
+          )}
+        </li>
+      </ul>
+      <ul className={styles.profile_info_main}>
+        <li className={styles.profile_info_main_li}>
+          Рост:
+          {!edit ? (
+            <p>{personalInfo.height}</p>
+          ) : (
+            <>
+              <br />
+              <input
+                value={personalInfo.height}
+                className={styles.edit}
+                name="height"
+                onChange={(e) => EditInfo(e)}
+              />
+            </>
+          )}
+        </li>
+      </ul>
       {!edit ? (
         <button
           className={styles.change_profile_info}
