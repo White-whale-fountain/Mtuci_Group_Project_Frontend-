@@ -6,7 +6,7 @@ export default function ProfileTabPersonalInfo() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
   const [personalInfo, setPersonalInfo] = useState([]);
-  const [nowPersonalInfo, setNowPersonalInfo] = useState(personalInfo);
+  const [nowPersonalInfo, setNowPersonalInfo] = useState([]);
 
   useEffect(() => {
     async function takeInfo() {
@@ -33,9 +33,11 @@ export default function ProfileTabPersonalInfo() {
     const property = e.target.name;
     const value = e.target.value;
     const updatePersonalInfo = UpdatedPersonalInfo(property, value);
-    setPersonalInfo(updatePersonalInfo);
+    return setPersonalInfo(updatePersonalInfo);
   }
-
+  function CancelEdit() {
+    return setEdit(false), setPersonalInfo(nowPersonalInfo);
+  }
   return (
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
@@ -50,7 +52,11 @@ export default function ProfileTabPersonalInfo() {
         <li className={styles.profile_info_main_li}>
           О себе:
           {!edit ? (
-            <p>{personalInfo.about_me}</p>
+            personalInfo.about_me ? (
+              <p>{personalInfo.about_me}</p>
+            ) : (
+              <p>Не указано</p>
+            )
           ) : (
             <>
               <br />
@@ -63,12 +69,14 @@ export default function ProfileTabPersonalInfo() {
             </>
           )}
         </li>
-      </ul>
-      <ul className={styles.profile_info_main}>
         <li className={styles.profile_info_main_li}>
           Рост:
           {!edit ? (
-            <p>{personalInfo.height}</p>
+            personalInfo.height ? (
+              <p>{personalInfo.height}</p>
+            ) : (
+              <p>Не указано</p>
+            )
           ) : (
             <>
               <br />
@@ -82,10 +90,11 @@ export default function ProfileTabPersonalInfo() {
           )}
         </li>
       </ul>
+
       {!edit ? (
         <button
           className={styles.change_profile_info}
-          onClick={() => setEdit(true)}
+          onClick={() => (setEdit(true), setNowPersonalInfo(personalInfo))}
         >
           Изменить
         </button>
@@ -102,7 +111,7 @@ export default function ProfileTabPersonalInfo() {
           <button
             className={styles.cancel_info}
             onClick={() => {
-              setEdit(false), setPersonalInfo(nowPersonalInfo);
+              CancelEdit();
             }}
           >
             Отменить

@@ -18,7 +18,6 @@ export const profile = {
     }
   },
   async put(path, user, form) {
-    console.log(form);
     try {
       const response = await instance.put(`/${path}/${user}`, { ...form });
       return response.data;

@@ -5,7 +5,6 @@ import { profile } from "../../../../../service/profile";
 export default function ProfileTabPreferences() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
-
   const [preferences, setPreferences] = useState([]);
   const [nowPreferences, setNowPreferences] = useState(preferences);
 
@@ -16,25 +15,6 @@ export default function ProfileTabPreferences() {
     takeInfo();
   }, []);
 
-  // function EditInfo() {}
-
-  // function ProfilePreferencesInfo({ state, header, info }) {
-  //   return (
-  //     <li className={styles.preferences_list_item}>
-  //       <div className={styles.preferences_list_item_header}>
-  //         <p>{header}</p>
-  //         {/* <button>
-  //           <img src="/../../src/assets/img/profile_pensil.png" alt="" />
-  //         </button> */}
-  //       </div>
-  //       {!edit ? (
-  //         <p>{info}</p>
-  //       ) : (
-  //         <input value={value.state} className={styles.edit} />
-  //       )}
-  //     </li>
-  //   );
-  // }
   async function SaveInfo() {
     return (
       setEdit(false),
@@ -43,63 +23,66 @@ export default function ProfileTabPreferences() {
     );
   }
 
-  function EditInfo(e, name) {
-    const updatePreferences = Object.entries(preferences).map(([key, value]) =>
-      key === name ? [key, [value[0], e.target.value]] : [key, value]
-    );
-    setPreferences(Object.fromEntries(updatePreferences));
-    // setPreferences[id].value(e.target.value);
-    // console.log(el.target.value);
+  function UpdatedPreferences(property, value) {
+    const updatePreferences = { ...preferences };
+    updatePreferences[property] = value;
+    return updatePreferences;
+  }
+
+  function EditInfo(e) {
+    const property = e.target.name;
+    const value = e.target.value;
+    const updatePreferences = UpdatedPreferences(property, value);
+    setPreferences(updatePreferences);
   }
 
   return (
     <>
       <ul className={styles.preferences_list}>
-        {Object.entries(preferences).map(([key, value]) => (
-          <li key={key} className={styles.preferences_list_item}>
-            <div className={styles.preferences_list_item_header}>
-              <p>{value[0]}</p>
-            </div>
-            {!edit ? (
-              <p>{value[1]}</p>
+        <li className={styles.preferences_list_item}>
+          <div className={styles.preferences_list_item_header}>
+            <p>Возраст</p>
+          </div>
+          {!edit ? (
+            preferences.age_pref ? (
+              <p>{preferences.age_pref}</p>
             ) : (
-              <input
-                value={value[1]}
-                className={styles.edit}
-                onChange={(e) => EditInfo(e, key)}
-              />
-            )}
-          </li>
-        ))}
+              <p>Не указано</p>
+            )
+          ) : (
+            <input
+              value={preferences.age_pref}
+              className={styles.edit}
+              name="age_pref"
+              onChange={(e) => EditInfo(e)}
+            />
+          )}
+        </li>
+        <li className={styles.preferences_list_item}>
+          <div className={styles.preferences_list_item_header}>
+            <p>Возраст</p>
+          </div>
+          {!edit ? (
+            preferences.height_pref ? (
+              <p>{preferences.height_pref}</p>
+            ) : (
+              <p>Не указано</p>
+            )
+          ) : (
+            <input
+              value={preferences.height_pref}
+              className={styles.edit}
+              name="height_pref"
+              onChange={(e) => EditInfo(e)}
+            />
+          )}
+        </li>
       </ul>
-      {/* <ul className={styles.preferences_list}>
-        <ProfilePreferencesInfo
-          state={"age"}
-          header={"Возраст"}
-          info={"18-20 лет"}
-        />
-        <ProfilePreferencesInfo
-          state={"height"}
-          header={"Рост"}
-          info={"Неважно"}
-        />
-        <ProfilePreferencesInfo
-          state={"weight"}
-          header={"Вес"}
-          info={"Неважно"}
-        />
-        <ProfilePreferencesInfo
-          state={"habits"}
-          header={"Вредные привычки"}
-          info={"Неважно"}
-        /> */}
-      {/* <ProfilePreferencesInfo header={"Религия"} info={"Неважно"} />
-      <ProfilePreferencesInfo header={"Ориентация"} info={"Гей"} /> */}
-      {/* </ul> */}
+
       {!edit ? (
         <button
           className={styles.change_profile_info}
-          onClick={() => setEdit(true)}
+          onClick={() => (setEdit(true), setNowPreferences(preferences))}
         >
           Изменить
         </button>
