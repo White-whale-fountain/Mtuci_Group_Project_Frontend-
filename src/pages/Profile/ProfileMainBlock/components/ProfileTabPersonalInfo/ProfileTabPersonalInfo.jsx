@@ -3,26 +3,29 @@ import styles from "./ProfileTabPersonalInfo.module.css";
 import { profile } from "../../../../../service/profile";
 import setInputHeight from "../../../../../assets/components/setInputHeight";
 import Select from "react-select";
-import { groups } from "../../../../../const/groups";
-import { purposes } from "../../../../../const/purposes";
+import { group } from "../../../../../const/groups";
+import { dating_purpose } from "../../../../../const/purposes";
 
-export default function ProfileTabPersonalInfo() {
+export default function ProfileTabPersonalInfo({
+  personalInfo,
+  setPersonalInfo,
+}) {
   const aboutMeTextAreaRef = useRef(null);
   const educationTextAreaRef = useRef(null);
   const interestsTextAreaRef = useRef(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
-  const [personalInfo, setPersonalInfo] = useState([]);
+  // const [personalInfo, setPersonalInfo] = useState([]);
   const [nowPersonalInfo, setNowPersonalInfo] = useState([]);
   const [currentGroup, setCurrentGroup] = useState("");
   const [currentPurposes, setCurrentPurposes] = useState("");
 
-  useEffect(() => {
-    async function takeInfo() {
-      setPersonalInfo(await profile.take("user_info", user));
-    }
-    takeInfo();
-  }, []);
+  // useEffect(() => {
+  //   async function takeInfo() {
+  //     setPersonalInfo(await profile.take("user_info", user));
+  //   }
+  //   takeInfo();
+  // }, []);
 
   useEffect(() => {
     if (aboutMeTextAreaRef.current) {
@@ -78,18 +81,26 @@ export default function ProfileTabPersonalInfo() {
   // };
 
   function getValue(obj) {
-    if (obj == "groups") {
-      return currentGroup ? groups.find((c) => c.value === currentGroup) : "";
+    if (obj == "group") {
+      return personalInfo.group
+        ? group.find((c) => c.value === personalInfo.group)
+        : "";
     } else {
-      return currentPurposes
-        ? purposes.find((c) => c.value === currentPurposes)
+      return personalInfo.group
+        ? dating_purpose.find((c) => c.value === personalInfo.dating_purpose)
         : "";
     }
   }
 
   function onChange(newValue, opt) {
-    if (opt.name == "groups") setCurrentGroup(newValue.value);
-    else setCurrentPurposes(newValue.value);
+    const value = newValue.value;
+    const property = opt.name;
+    const updatePersonalInfo = UpdatedPersonalInfo(property, value);
+    return setPersonalInfo(updatePersonalInfo);
+
+    // const updatePersonalInfo = UpdatedPersonalInfo(property, value);
+    // if (opt.name == "group") setCurrentGroup(value);
+    // else setCurrentPurposes(newValue.value);
   }
 
   return (
@@ -115,6 +126,7 @@ export default function ProfileTabPersonalInfo() {
             <>
               <br />
               <textarea
+                maxLength={150}
                 rows={1}
                 ref={aboutMeTextAreaRef}
                 value={personalInfo.about_me}
@@ -125,7 +137,7 @@ export default function ProfileTabPersonalInfo() {
             </>
           )}
         </li>
-        <li className={styles.profile_info_main_li}>
+        <li className={styles.profile_info_main_li} style={{ paddingTop: 15 }}>
           <b style={{ paddingLeft: 12 }}>Интересы:</b>
           {!edit ? (
             personalInfo.interests ? (
@@ -137,6 +149,7 @@ export default function ProfileTabPersonalInfo() {
             <>
               <br />
               <textarea
+                maxLength={50}
                 rows={1}
                 ref={interestsTextAreaRef}
                 value={personalInfo.interests}
@@ -147,18 +160,19 @@ export default function ProfileTabPersonalInfo() {
             </>
           )}
         </li>
-        <li className={styles.profile_info_main_li}>
-          <b style={{ paddingLeft: 12 }}>Интересы:</b>
+        <li className={styles.profile_info_main_li} style={{ paddingTop: 15 }}>
+          <b style={{ paddingLeft: 12 }}>Карьера и образование:</b>
           {!edit ? (
             personalInfo.education ? (
               <p>{personalInfo.education}</p>
             ) : (
-              <p>Карьера и образование</p>
+              <p>Не указано</p>
             )
           ) : (
             <>
               <br />
               <textarea
+                maxLength={50}
                 rows={1}
                 ref={educationTextAreaRef}
                 value={personalInfo.education}
@@ -169,11 +183,11 @@ export default function ProfileTabPersonalInfo() {
             </>
           )}
         </li>
-        <li className={styles.profile_info_main_li}>
+        <li className={styles.profile_info_main_li} style={{ paddingTop: 15 }}>
           <b style={{ paddingLeft: 12 }}>Группа:</b>
           {!edit ? (
-            currentGroup ? (
-              <p>{currentGroup}</p>
+            personalInfo.group ? (
+              <p>{personalInfo.group}</p>
             ) : (
               <p>Не указано</p>
             )
@@ -181,21 +195,21 @@ export default function ProfileTabPersonalInfo() {
             <>
               <br />
               <Select
-                name="groups"
-                options={groups}
+                name="group"
+                options={group}
                 className={styles.options_btn}
-                value={getValue("groups")}
+                value={getValue("group")}
                 onChange={onChange}
                 maxMenuHeight={60}
               />
             </>
           )}
         </li>
-        <li className={styles.profile_info_main_li}>
-          <b style={{ paddingLeft: 12 }}>Группа:</b>
+        <li className={styles.profile_info_main_li} style={{ paddingTop: 15 }}>
+          <b style={{ paddingLeft: 12 }}>Цель знакомства:</b>
           {!edit ? (
-            currentPurposes ? (
-              <p>{currentPurposes}</p>
+            personalInfo.dating_purpose ? (
+              <p>{personalInfo.dating_purpose}</p>
             ) : (
               <p>Не указано</p>
             )
@@ -203,10 +217,10 @@ export default function ProfileTabPersonalInfo() {
             <>
               <br />
               <Select
-                name="purposes"
-                options={purposes}
+                name="dating_purpose"
+                options={dating_purpose}
                 className={styles.options_btn}
-                value={getValue("purposes")}
+                value={getValue("dating_purpose")}
                 onChange={onChange}
                 maxMenuHeight={60}
               />

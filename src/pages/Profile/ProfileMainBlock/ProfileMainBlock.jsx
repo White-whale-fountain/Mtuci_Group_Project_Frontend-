@@ -5,15 +5,14 @@ import ProfileCard from "./components/ProfileCard/ProfileCard.jsx";
 import ProfileDescription from "./components/ProfileDescription/ProfileDescription.jsx";
 
 export default function ProfileMainBlock() {
-  const login = JSON.parse(localStorage.getItem("user"));
-  const [data, setData] = useState([]);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const [personalInfo, setPersonalInfo] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await profile.card(login);
-      setData(data);
-    };
-    fetchData();
+    async function takeInfo() {
+      setPersonalInfo(await profile.take("user_info", user));
+    }
+    takeInfo();
   }, []);
 
   return (
@@ -23,14 +22,11 @@ export default function ProfileMainBlock() {
         alt=""
         className={styles.profile_main_background}
       />
-      <ProfileCard>
-        {{
-          name: data.name,
-          age: data.age,
-          sex: data.sex,
-        }}
-      </ProfileCard>
-      <ProfileDescription />
+      <ProfileCard personalInfo={personalInfo} />
+      <ProfileDescription
+        personalInfo={personalInfo}
+        setPersonalInfo={setPersonalInfo}
+      />
     </div>
   );
 }

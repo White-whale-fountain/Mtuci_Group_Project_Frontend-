@@ -64,4 +64,6 @@
   font: 500 15px Montserrat;
   color: #333333;
   padding-top: 20px;
+  hyphens: auto;
+  word-wrap: break-word;
 }

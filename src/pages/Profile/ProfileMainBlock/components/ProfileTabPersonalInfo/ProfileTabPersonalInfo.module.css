@@ -44,9 +44,10 @@
   padding-top: 12px;
   font: 600 13px Montserrat;
   color: #a3a3a3;
+  word-wrap: break-word;
 }
 .profile_info_main_li {
-  padding-bottom: 26px;
+  /* padding-bottom: 26px; */
   min-width: 274px;
   max-width: 274px;
   margin-right: 35px;

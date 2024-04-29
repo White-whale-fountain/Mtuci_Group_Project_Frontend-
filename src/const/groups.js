@@ -1,4 +1,4 @@
-export const groups = [
+export const group = [
   { value: "БЭИ-2301", label: "БЭИ-2301" },
   { value: "БЭИ-2302", label: "БЭИ-2302" },
   { value: "БЭИ-2303", label: "БЭИ-2303" },

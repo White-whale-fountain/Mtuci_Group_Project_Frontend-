@@ -1,8 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./ProfileTabPreferences.module.css";
 import { profile } from "../../../../../service/profile";
+import setInputHeight from "../../../../../assets/components/setInputHeight";
 
 export default function ProfileTabPreferences() {
+  const agePrefTextAreaRef = useRef(null);
+  const heightPrefTextAreaRef = useRef(null);
+  const weightPrefTextAreaRef = useRef(null);
+  const typeTextAreaRef = useRef(null);
+  const habitsTextAreaRef = useRef(null);
+  const religionTextAreaRef = useRef(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
   const [preferences, setPreferences] = useState([]);
@@ -14,6 +21,39 @@ export default function ProfileTabPreferences() {
     }
     takeInfo();
   }, []);
+
+  useEffect(() => {
+    if (agePrefTextAreaRef.current) {
+      agePrefTextAreaRef.current.style.height = "auto";
+      agePrefTextAreaRef.current.style.height =
+        agePrefTextAreaRef.current.scrollHeight + "px";
+    }
+    if (heightPrefTextAreaRef.current) {
+      heightPrefTextAreaRef.current.style.height = "auto";
+      heightPrefTextAreaRef.current.style.height =
+        heightPrefTextAreaRef.current.scrollHeight + "px";
+    }
+    if (weightPrefTextAreaRef.current) {
+      weightPrefTextAreaRef.current.style.height = "auto";
+      weightPrefTextAreaRef.current.style.height =
+        weightPrefTextAreaRef.current.scrollHeight + "px";
+    }
+    if (typeTextAreaRef.current) {
+      typeTextAreaRef.current.style.height = "auto";
+      typeTextAreaRef.current.style.height =
+        typeTextAreaRef.current.scrollHeight + "px";
+    }
+    if (habitsTextAreaRef.current) {
+      habitsTextAreaRef.current.style.height = "auto";
+      habitsTextAreaRef.current.style.height =
+        habitsTextAreaRef.current.scrollHeight + "px";
+    }
+    if (religionTextAreaRef.current) {
+      religionTextAreaRef.current.style.height = "auto";
+      religionTextAreaRef.current.style.height =
+        religionTextAreaRef.current.scrollHeight + "px";
+    }
+  }, [edit]);
 
   async function SaveInfo() {
     return (
@@ -33,6 +73,7 @@ export default function ProfileTabPreferences() {
     const property = e.target.name;
     const value = e.target.value;
     const updatePreferences = UpdatedPreferences(property, value);
+    setInputHeight(e, "28px");
     setPreferences(updatePreferences);
   }
 
@@ -41,7 +82,7 @@ export default function ProfileTabPreferences() {
       <ul className={styles.preferences_list}>
         <li className={styles.preferences_list_item}>
           <div className={styles.preferences_list_item_header}>
-            <p>Возраст</p>
+            <p>Возраст:</p>
           </div>
           {!edit ? (
             preferences.age_pref ? (
@@ -50,7 +91,10 @@ export default function ProfileTabPreferences() {
               <p>Не указано</p>
             )
           ) : (
-            <input
+            <textarea
+              maxLength={30}
+              rows={1}
+              ref={agePrefTextAreaRef}
               value={preferences.age_pref}
               className={styles.edit}
               name="age_pref"
@@ -60,7 +104,7 @@ export default function ProfileTabPreferences() {
         </li>
         <li className={styles.preferences_list_item}>
           <div className={styles.preferences_list_item_header}>
-            <p>Возраст</p>
+            <p>Рост:</p>
           </div>
           {!edit ? (
             preferences.height_pref ? (
@@ -69,10 +113,101 @@ export default function ProfileTabPreferences() {
               <p>Не указано</p>
             )
           ) : (
-            <input
+            <textarea
+              maxLength={30}
+              rows={1}
+              ref={heightPrefTextAreaRef}
               value={preferences.height_pref}
               className={styles.edit}
               name="height_pref"
+              onChange={(e) => EditInfo(e)}
+            />
+          )}
+        </li>
+        <li className={styles.preferences_list_item}>
+          <div className={styles.preferences_list_item_header}>
+            <p>Вес:</p>
+          </div>
+          {!edit ? (
+            preferences.weight_pref ? (
+              <p>{preferences.weight_pref}</p>
+            ) : (
+              <p>Не указано</p>
+            )
+          ) : (
+            <textarea
+              maxLength={30}
+              rows={1}
+              ref={weightPrefTextAreaRef}
+              value={preferences.weight_pref}
+              className={styles.edit}
+              name="weight_pref"
+              onChange={(e) => EditInfo(e)}
+            />
+          )}
+        </li>
+        <li className={styles.preferences_list_item}>
+          <div className={styles.preferences_list_item_header}>
+            <p>Тип внешности:</p>
+          </div>
+          {!edit ? (
+            preferences.type ? (
+              <p>{preferences.type}</p>
+            ) : (
+              <p>Не указано</p>
+            )
+          ) : (
+            <textarea
+              maxLength={30}
+              rows={1}
+              ref={typeTextAreaRef}
+              value={preferences.type}
+              className={styles.edit}
+              name="type"
+              onChange={(e) => EditInfo(e)}
+            />
+          )}
+        </li>
+        <li className={styles.preferences_list_item}>
+          <div className={styles.preferences_list_item_header}>
+            <p>Вредные привычки:</p>
+          </div>
+          {!edit ? (
+            preferences.habits ? (
+              <p>{preferences.habits}</p>
+            ) : (
+              <p>Не указано</p>
+            )
+          ) : (
+            <textarea
+              maxLength={30}
+              rows={1}
+              ref={habitsTextAreaRef}
+              value={preferences.habits}
+              className={styles.edit}
+              name="habits"
+              onChange={(e) => EditInfo(e)}
+            />
+          )}
+        </li>
+        <li className={styles.preferences_list_item}>
+          <div className={styles.preferences_list_item_header}>
+            <p>Религия:</p>
+          </div>
+          {!edit ? (
+            preferences.religion ? (
+              <p>{preferences.religion}</p>
+            ) : (
+              <p>Не указано</p>
+            )
+          ) : (
+            <textarea
+              maxLength={30}
+              rows={1}
+              ref={religionTextAreaRef}
+              value={preferences.religion}
+              className={styles.edit}
+              name="religion"
               onChange={(e) => EditInfo(e)}
             />
           )}
