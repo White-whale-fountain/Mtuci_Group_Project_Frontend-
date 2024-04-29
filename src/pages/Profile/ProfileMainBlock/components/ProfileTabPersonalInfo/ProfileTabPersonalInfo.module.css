@@ -34,20 +34,24 @@
   flex-wrap: wrap;
   font: 700 14px Montserrat;
   list-style: none;
-  padding-left: 35px;
+  padding-left: 23px;
   width: 300px;
   height: 300px;
 }
 
 .profile_info_main p {
-  padding-top: 5px;
+  padding-left: 12px;
+  padding-top: 12px;
   font: 600 13px Montserrat;
   color: #a3a3a3;
 }
 .profile_info_main_li {
-  padding-bottom: 30px;
-  max-width: 260px;
+  padding-bottom: 26px;
+  min-width: 274px;
+  max-width: 274px;
   margin-right: 35px;
+  min-height: 40px;
+  padding-bottom: none;
 }
 
 .change_profile_info {
@@ -95,16 +99,32 @@
 }
 
 .edit {
-  font: 600 14px Montserrat;
+  font: 600 13px Montserrat;
+  color: #a3a3a3;
   margin-top: 10px;
-  width: 120px;
-  background-color: #e3e3e3;
+  background-color: #d9d9d94d;
   border: 1;
   border-radius: 5px;
-  text-align: center;
-  height: 22px;
+  text-align: left;
+  resize: none;
+  overflow: hidden;
+  padding: 3px 3px 3px 8px;
+  box-sizing: border-box;
+  /* height: 28px; */
+  /* min-height: 28px; */
+  width: 274px;
+  margin: none;
+  border-style: dashed;
+  border-color: #0000002e;
 }
 
 .edit:active {
   border: none;
+}
+
+.options_btn {
+  background-color: #d9d9d94d;
+  width: 150px;
+  font-size: 10px;
+  margin-top: 10px;
 }

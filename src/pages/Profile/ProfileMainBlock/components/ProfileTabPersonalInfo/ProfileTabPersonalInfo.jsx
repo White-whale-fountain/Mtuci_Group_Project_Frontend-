@@ -1,12 +1,21 @@
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import styles from "./ProfileTabPersonalInfo.module.css";
 import { profile } from "../../../../../service/profile";
+import setInputHeight from "../../../../../assets/components/setInputHeight";
+import Select from "react-select";
+import { groups } from "../../../../../const/groups";
+import { purposes } from "../../../../../const/purposes";
 
 export default function ProfileTabPersonalInfo() {
+  const aboutMeTextAreaRef = useRef(null);
+  const educationTextAreaRef = useRef(null);
+  const interestsTextAreaRef = useRef(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
   const [personalInfo, setPersonalInfo] = useState([]);
   const [nowPersonalInfo, setNowPersonalInfo] = useState([]);
+  const [currentGroup, setCurrentGroup] = useState("");
+  const [currentPurposes, setCurrentPurposes] = useState("");
 
   useEffect(() => {
     async function takeInfo() {
@@ -14,6 +23,24 @@ export default function ProfileTabPersonalInfo() {
     }
     takeInfo();
   }, []);
+
+  useEffect(() => {
+    if (aboutMeTextAreaRef.current) {
+      aboutMeTextAreaRef.current.style.height = "auto";
+      aboutMeTextAreaRef.current.style.height =
+        aboutMeTextAreaRef.current.scrollHeight + "px";
+    }
+    if (educationTextAreaRef.current) {
+      educationTextAreaRef.current.style.height = "auto";
+      educationTextAreaRef.current.style.height =
+        educationTextAreaRef.current.scrollHeight + "px";
+    }
+    if (interestsTextAreaRef.current) {
+      interestsTextAreaRef.current.style.height = "auto";
+      interestsTextAreaRef.current.style.height =
+        interestsTextAreaRef.current.scrollHeight + "px";
+    }
+  }, [edit]);
 
   async function SaveInfo() {
     return (
@@ -33,11 +60,36 @@ export default function ProfileTabPersonalInfo() {
     const property = e.target.name;
     const value = e.target.value;
     const updatePersonalInfo = UpdatedPersonalInfo(property, value);
+    setInputHeight(e, "28px");
     return setPersonalInfo(updatePersonalInfo);
   }
   function CancelEdit() {
     return setEdit(false), setPersonalInfo(nowPersonalInfo);
   }
+
+  const getGroup = () => {
+    return currentGroup ? groups.find((c) => c.value === currentGroup) : "";
+  };
+
+  const getPurposes = () => {
+    return currentPurposes
+      ? purposes.find((c) => c.value === currentPurposes)
+      : "";
+  };
+
+  // const onChange = (newValue) => {
+  //   setCurrentGroup(newValue.value);
+  // };
+
+  function onChangeGroup(newValue) {
+    setCurrentGroup(newValue.value);
+  }
+
+  function onChangePurposes(newValue) {
+    setCurrentPurposes(newValue.value);
+    console.log(newValue);
+  }
+
   return (
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
@@ -50,7 +102,7 @@ export default function ProfileTabPersonalInfo() {
       </div>
       <ul className={styles.profile_info_main}>
         <li className={styles.profile_info_main_li}>
-          О себе:
+          <b style={{ paddingLeft: 12 }}>О себе:</b>
           {!edit ? (
             personalInfo.about_me ? (
               <p>{personalInfo.about_me}</p>
@@ -60,7 +112,9 @@ export default function ProfileTabPersonalInfo() {
           ) : (
             <>
               <br />
-              <input
+              <textarea
+                rows={1}
+                ref={aboutMeTextAreaRef}
                 value={personalInfo.about_me}
                 className={styles.edit}
                 name="about_me"
@@ -70,21 +124,89 @@ export default function ProfileTabPersonalInfo() {
           )}
         </li>
         <li className={styles.profile_info_main_li}>
-          Рост:
+          <b style={{ paddingLeft: 12 }}>Интересы:</b>
           {!edit ? (
-            personalInfo.height ? (
-              <p>{personalInfo.height}</p>
+            personalInfo.interests ? (
+              <p>{personalInfo.interests}</p>
             ) : (
               <p>Не указано</p>
             )
           ) : (
             <>
               <br />
-              <input
-                value={personalInfo.height}
+              <textarea
+                rows={1}
+                ref={interestsTextAreaRef}
+                value={personalInfo.interests}
                 className={styles.edit}
-                name="height"
+                name="interests"
                 onChange={(e) => EditInfo(e)}
+              />
+            </>
+          )}
+        </li>
+        <li className={styles.profile_info_main_li}>
+          <b style={{ paddingLeft: 12 }}>Интересы:</b>
+          {!edit ? (
+            personalInfo.education ? (
+              <p>{personalInfo.education}</p>
+            ) : (
+              <p>Карьера и образование</p>
+            )
+          ) : (
+            <>
+              <br />
+              <textarea
+                rows={1}
+                ref={educationTextAreaRef}
+                value={personalInfo.education}
+                className={styles.edit}
+                name="education"
+                onChange={(e) => EditInfo(e)}
+              />
+            </>
+          )}
+        </li>
+        <li className={styles.profile_info_main_li}>
+          <b style={{ paddingLeft: 12 }}>Группа:</b>
+          {!edit ? (
+            currentGroup ? (
+              <p>{currentGroup}</p>
+            ) : (
+              <p>Не указано</p>
+            )
+          ) : (
+            <>
+              <br />
+              <Select
+                name="group"
+                options={groups}
+                className={styles.options_btn}
+                value={getGroup()}
+                onChange={onChangeGroup}
+                maxMenuHeight={60}
+              />
+            </>
+          )}
+        </li>
+        <li className={styles.profile_info_main_li}>
+          <b style={{ paddingLeft: 12 }}>Группа:</b>
+          {!edit ? (
+            currentPurposes ? (
+              <p>{currentPurposes}</p>
+            ) : (
+              <p>Не указано</p>
+            )
+          ) : (
+            <>
+              <br />
+              <Select
+                name="purposes"
+                options={purposes}
+                className={styles.options_btn}
+                value={getPurposes()}
+                onChange={onChangePurposes}
+                maxMenuHeight={60}
               />
             </>
           )}
