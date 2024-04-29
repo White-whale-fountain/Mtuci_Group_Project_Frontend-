@@ -25,13 +25,4 @@ export const profile = {
       console.log(error);
     }
   },
-
-  // async about_me(user) {
-  //   try {
-  //     const response = await instance.get("/user_info", { login: user });
-  //     return console.log(response);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // },
 };

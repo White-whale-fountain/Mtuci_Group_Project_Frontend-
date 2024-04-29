@@ -67,27 +67,29 @@ export default function ProfileTabPersonalInfo() {
     return setEdit(false), setPersonalInfo(nowPersonalInfo);
   }
 
-  const getGroup = () => {
-    return currentGroup ? groups.find((c) => c.value === currentGroup) : "";
-  };
-
-  const getPurposes = () => {
-    return currentPurposes
-      ? purposes.find((c) => c.value === currentPurposes)
-      : "";
-  };
-
-  // const onChange = (newValue) => {
-  //   setCurrentGroup(newValue.value);
+  // const getGroup = () => {
+  //   return currentGroup ? groups.find((c) => c.value === currentGroup) : "";
   // };
 
-  function onChangeGroup(newValue) {
-    setCurrentGroup(newValue.value);
+  // const getPurposes = () => {
+  //   return currentPurposes
+  //     ? purposes.find((c) => c.value === currentPurposes)
+  //     : "";
+  // };
+
+  function getValue(obj) {
+    if (obj == "groups") {
+      return currentGroup ? groups.find((c) => c.value === currentGroup) : "";
+    } else {
+      return currentPurposes
+        ? purposes.find((c) => c.value === currentPurposes)
+        : "";
+    }
   }
 
-  function onChangePurposes(newValue) {
-    setCurrentPurposes(newValue.value);
-    console.log(newValue);
+  function onChange(newValue, opt) {
+    if (opt.name == "groups") setCurrentGroup(newValue.value);
+    else setCurrentPurposes(newValue.value);
   }
 
   return (
@@ -179,11 +181,11 @@ export default function ProfileTabPersonalInfo() {
             <>
               <br />
               <Select
-                name="group"
+                name="groups"
                 options={groups}
                 className={styles.options_btn}
-                value={getGroup()}
-                onChange={onChangeGroup}
+                value={getValue("groups")}
+                onChange={onChange}
                 maxMenuHeight={60}
               />
             </>
@@ -204,8 +206,8 @@ export default function ProfileTabPersonalInfo() {
                 name="purposes"
                 options={purposes}
                 className={styles.options_btn}
-                value={getPurposes()}
-                onChange={onChangePurposes}
+                value={getValue("purposes")}
+                onChange={onChange}
                 maxMenuHeight={60}
               />
             </>
