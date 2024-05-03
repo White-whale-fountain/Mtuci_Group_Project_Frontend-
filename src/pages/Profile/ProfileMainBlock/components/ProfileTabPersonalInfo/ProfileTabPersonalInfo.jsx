@@ -126,7 +126,7 @@ export default function ProfileTabPersonalInfo({
             <>
               <br />
               <textarea
-                maxLength={150}
+                maxLength={120}
                 rows={1}
                 ref={aboutMeTextAreaRef}
                 value={personalInfo.about_me}
