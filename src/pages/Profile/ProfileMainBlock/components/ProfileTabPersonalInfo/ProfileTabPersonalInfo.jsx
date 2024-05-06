@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./ProfileTabPersonalInfo.module.css";
 import { profile } from "../../../../../service/profile";
-
-export default function ProfileTabPersonalInfo() {
+export default function ProfileTabPersonalInfo( props ) {
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
   const [personalInfo, setPersonalInfo] = useState([]);
@@ -40,11 +39,11 @@ export default function ProfileTabPersonalInfo() {
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
         <img
-          src="/../../src/assets/img/рама.png"
+          src={props.avatar}
           alt=""
           className={styles.img_placeholder_photo}
         />
-        <button className={styles.img_placeholder_button}>Добавить фото</button>
+        <button className={styles.img_placeholder_button} onClick={props.onChange}>Добавить фото</button>
       </div>
       <ul className={styles.profile_info_main}>
         <li className={styles.profile_info_main_li}>

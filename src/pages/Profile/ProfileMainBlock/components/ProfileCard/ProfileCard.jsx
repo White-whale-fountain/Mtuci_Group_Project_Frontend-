@@ -1,10 +1,10 @@
 import styles from "./ProfileCard.module.css";
-
+import happyPeople from '../../../public/people1.png'
 export default function ProfileCard(props) {
   return (
     <div className={styles.profile_card_main}>
       <div className={styles.profile_card_main_header}>
-        <img src="/../../src/assets/img/people1.png" alt="" />
+        <img src={props.children.avatar} alt="" />
         <p>{props.children.name + ", " + props.children.age}</p>
         <span>БПИ-2301</span>
       </div>

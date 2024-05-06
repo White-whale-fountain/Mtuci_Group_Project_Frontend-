@@ -29,9 +29,7 @@
   padding-bottom: 7px;
   margin-top: 16px;
 }
-.profile_menu {
-  position: relatiave;
-}
+
 
 .profile_header_dropdown {
   background: none;
@@ -65,7 +63,7 @@
   padding: 10px;
   background: #ffffff;
   list-style: none;
-  width: 170px;
+  width: 169px;
   height: 210px;
   text-align: center;
   border: 1px solid lightgrey;

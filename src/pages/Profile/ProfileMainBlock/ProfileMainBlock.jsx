@@ -1,16 +1,15 @@
 import styles from "./ProfileMainBlock.module.css";
-import { profile } from "../../../service/profile.js";
-import { useState, useEffect } from "react";
+import {profile} from "../../../service/profile.js";
+import {useEffect, useState} from "react";
 import ProfileCard from "./components/ProfileCard/ProfileCard.jsx";
 import ProfileDescription from "./components/ProfileDescription/ProfileDescription.jsx";
-
-export default function ProfileMainBlock() {
-  const login = JSON.parse(localStorage.getItem("user"));
+import profileBackground from "../public/profile_background.png"
+export default function ProfileMainBlock( props ) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await profile.card(login);
+      const data = await profile.card(props.login);
       setData(data);
     };
     fetchData();
@@ -19,7 +18,7 @@ export default function ProfileMainBlock() {
   return (
     <div className={styles.profile_main_block}>
       <img
-        src="/../../src/assets/img/profile_background.png"
+        src={profileBackground}
         alt=""
         className={styles.profile_main_background}
       />
@@ -28,9 +27,10 @@ export default function ProfileMainBlock() {
           name: data.name,
           age: data.age,
           sex: data.sex,
+          avatar: props.avatar
         }}
       </ProfileCard>
-      <ProfileDescription />
+      <ProfileDescription avatar = {props.avatar} onChange={props.onChange}/>
     </div>
   );
 }
