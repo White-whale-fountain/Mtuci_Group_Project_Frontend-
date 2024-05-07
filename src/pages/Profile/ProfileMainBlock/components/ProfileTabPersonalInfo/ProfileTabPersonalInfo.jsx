@@ -6,10 +6,7 @@ import Select from "react-select";
 import { group } from "../../../../../const/groups";
 import { dating_purpose } from "../../../../../const/purposes";
 
-export default function ProfileTabPersonalInfo({
-  personalInfo,
-  setPersonalInfo,
-}) {
+export default function ProfileTabPersonalInfo({ personalInfo, setPersonalInfo, avatar, setModal}) {
   const aboutMeTextAreaRef = useRef(null);
   const educationTextAreaRef = useRef(null);
   const interestsTextAreaRef = useRef(null);
@@ -87,11 +84,11 @@ export default function ProfileTabPersonalInfo({
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
         <img
-          src={props.avatar}
+          src={avatar}
           alt=""
           className={styles.img_placeholder_photo}
         />
-        <button className={styles.img_placeholder_button} onClick={props.onChange}>Добавить фото</button>
+        <button className={styles.img_placeholder_button} onClick={setModal}>Добавить фото</button>
       </div>
       <ul className={styles.profile_info_main}>
         <li className={styles.profile_info_main_li}>

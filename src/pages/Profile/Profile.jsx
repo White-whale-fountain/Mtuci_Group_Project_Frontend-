@@ -34,7 +34,7 @@ export default function Profile() {
           <ProfileSideBar/>
           <div className={styles.profile_main}>
             <ProfileHeader login = {login} avatar = {avatar} />
-            <ProfileMainBlock onChange={setModal} login = {login} avatar = {avatar}/>
+            <ProfileMainBlock setModal={setModal} avatar = {avatar}/>
           </div>
       </div>
     </>

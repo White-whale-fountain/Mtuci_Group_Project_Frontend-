@@ -1,16 +1,17 @@
 import styles from "./ProfileHeader.module.css";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import {useState} from "react";
+import {Link} from "react-router-dom";
 import profile from "../public/profile.png"
 import bell from "../public/bell.png"
 import vectorDropdown from "../public/profile_vector_dropdown.png"
+
 export default function ProfileHeader(props) {
   const [isOpen, setIsOpen] = useState();
+
   function leave() {
     return localStorage.removeItem("user");
   }
-  console.log(props.login)
-  console.log(props.avatar)
+
   return (
     <div className={styles.profile_header}>
       <img
@@ -24,7 +25,7 @@ export default function ProfileHeader(props) {
           alt="Уведомления"
           className={styles.profile_header_notifications}
         />
-        <nav className={styles.profile_menu}>
+        <nav>
           <button
             className={styles.profile_header_dropdown}
             onClick={() => setIsOpen(!isOpen)}

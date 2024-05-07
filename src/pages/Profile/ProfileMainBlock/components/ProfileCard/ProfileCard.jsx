@@ -1,10 +1,11 @@
 import styles from "./ProfileCard.module.css";
 
-export default function ProfileCard({ personalInfo }) {
+export default function ProfileCard({ personalInfo, avatar }) {
+  console.log(personalInfo)
   return (
     <div className={styles.profile_card_main}>
       <div className={styles.profile_card_main_header}>
-        <img src={personalInfo.avatar} alt="" />
+        <img src={avatar} alt="" />
         <p>{personalInfo.name}</p>
         <span>{personalInfo.group ? personalInfo.group : "*Группа*"}</span>
       </div>
