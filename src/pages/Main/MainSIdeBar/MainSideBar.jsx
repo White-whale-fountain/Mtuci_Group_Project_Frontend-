@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import styles from "./ProfileSideBar.module.css";
+import styles from "./MainSideBar.module.css";
 
 export default function MainSideBar() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <nav className={styles.sidebar_nav}>
       <div className={styles.nav_logo}>
@@ -14,11 +16,15 @@ export default function MainSideBar() {
       </div>
       <div className={styles.nav_main}>
         <Link to={"/main"} className={styles.nav_button}>
-          <img src="/../../src/assets/img/home_disable.png" alt="home" />
-        </Link>
-        <Link to={``} className={styles.nav_button}>
           <img
-            src="/../../src/assets/img/profile.png"
+            src="/../../src/assets/img/home.png"
+            alt="home"
+            id={styles.home_button}
+          />
+        </Link>
+        <Link to={`/${user}`} className={styles.nav_button}>
+          <img
+            src="/../../src/assets/img/profile_disable.png"
             alt="profile"
             width={"92px"}
             height={"28px"}

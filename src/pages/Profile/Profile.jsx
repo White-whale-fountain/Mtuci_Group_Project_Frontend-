@@ -5,14 +5,12 @@ import ProfileMainBlock from "./ProfileMainBlock/ProfileMainBlock.jsx";
 
 export default function Profile() {
   return (
-    <>
-      <div className={styles.profile}>
-        <ProfileSideBar />
-        <div className={styles.profile_main}>
-          <ProfileHeader />
-          <ProfileMainBlock />
-        </div>
+    <div className={styles.profile}>
+      <ProfileSideBar />
+      <div className={styles.profile_main}>
+        <ProfileHeader />
+        <ProfileMainBlock />
       </div>
-    </>
+    </div>
   );
 }
