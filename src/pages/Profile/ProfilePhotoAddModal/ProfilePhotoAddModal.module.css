@@ -1,0 +1,108 @@
+.modal_dialog {
+    width: 450px;
+    height: 450px;
+    z-index: 101;
+    padding: 10px;
+    margin: 130px auto;
+    border: None;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    animation: load_photo 1s;
+}
+
+.modal_dialog::backdrop {
+    background-color: #000;
+    opacity: 35%;
+}
+
+.close_button {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #00000099;
+    border-radius: 5px;
+    cursor: pointer;
+    background: None;
+    font: 400 35px "Montserrat";
+    color: #000000d9;
+    float: right;
+}
+
+.modal_chosen_avatar {
+    width: 360px;
+    height: 360px;
+    border-radius: 3px;
+}
+
+.modal_avatar_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 10px
+}
+
+.modal_avatar_button {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #2FA1D228;
+    box-shadow: 2px 2px 0px 1px #2FA1D22f;
+    font: 500 19px "Montserrat"
+}
+
+.modal_content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.modal_content_label {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    width: 435px;
+    height: 380px;
+    border: 2px dashed #ccc;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    color: #404040;
+    cursor: pointer;
+    font: 500 23px 'Montserrat'
+}
+
+.modal_content_label_picture {
+    width: 230px;
+    height: 230px;
+    opacity: 90%;
+}
+
+.modal_content_input {
+    max-width: 190px;
+    display: none;
+}
+
+
+@keyframes load_photo {
+    0% {
+        opacity: 80%;
+        scale: 80%;
+
+    }
+    50% {
+        opacity: 1;
+        scale: 1;
+        transform: translate3d(0, -70px, -40px)
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+}

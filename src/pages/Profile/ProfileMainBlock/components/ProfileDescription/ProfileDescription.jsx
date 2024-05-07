@@ -15,6 +15,8 @@ export default function ProfileDescription({ personalInfo, setPersonalInfo }) {
           <ProfileTabPersonalInfo
             personalInfo={personalInfo}
             setPersonalInfo={setPersonalInfo}
+            avatar={avatar}
+            onChange={onChange}
           />
         ) : null}
         {tab === "profilePreferences" ? <ProfileTabPreferences /> : null}

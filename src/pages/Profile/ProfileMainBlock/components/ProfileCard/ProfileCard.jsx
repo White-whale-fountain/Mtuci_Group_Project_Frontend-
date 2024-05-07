@@ -4,7 +4,7 @@ export default function ProfileCard({ personalInfo }) {
   return (
     <div className={styles.profile_card_main}>
       <div className={styles.profile_card_main_header}>
-        <img src="/../../src/assets/img/people1.png" alt="" />
+        <img src={personalInfo.avatar} alt="" />
         <p>{personalInfo.name}</p>
         <span>{personalInfo.group ? personalInfo.group : "*Группа*"}</span>
       </div>

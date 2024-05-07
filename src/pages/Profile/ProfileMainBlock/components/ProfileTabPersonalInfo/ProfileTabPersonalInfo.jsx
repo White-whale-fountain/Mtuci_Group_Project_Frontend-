@@ -15,17 +15,10 @@ export default function ProfileTabPersonalInfo({
   const interestsTextAreaRef = useRef(null);
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
-  // const [personalInfo, setPersonalInfo] = useState([]);
   const [nowPersonalInfo, setNowPersonalInfo] = useState([]);
   const [currentGroup, setCurrentGroup] = useState("");
   const [currentPurposes, setCurrentPurposes] = useState("");
 
-  // useEffect(() => {
-  //   async function takeInfo() {
-  //     setPersonalInfo(await profile.take("user_info", user));
-  //   }
-  //   takeInfo();
-  // }, []);
 
   useEffect(() => {
     if (aboutMeTextAreaRef.current) {
@@ -70,16 +63,6 @@ export default function ProfileTabPersonalInfo({
     return setEdit(false), setPersonalInfo(nowPersonalInfo);
   }
 
-  // const getGroup = () => {
-  //   return currentGroup ? groups.find((c) => c.value === currentGroup) : "";
-  // };
-
-  // const getPurposes = () => {
-  //   return currentPurposes
-  //     ? purposes.find((c) => c.value === currentPurposes)
-  //     : "";
-  // };
-
   function getValue(obj) {
     if (obj == "group") {
       return personalInfo.group
@@ -98,20 +81,17 @@ export default function ProfileTabPersonalInfo({
     const updatePersonalInfo = UpdatedPersonalInfo(property, value);
     return setPersonalInfo(updatePersonalInfo);
 
-    // const updatePersonalInfo = UpdatedPersonalInfo(property, value);
-    // if (opt.name == "group") setCurrentGroup(value);
-    // else setCurrentPurposes(newValue.value);
   }
 
   return (
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
         <img
-          src="/../../src/assets/img/рама.png"
+          src={props.avatar}
           alt=""
           className={styles.img_placeholder_photo}
         />
-        <button className={styles.img_placeholder_button}>Добавить фото</button>
+        <button className={styles.img_placeholder_button} onClick={props.onChange}>Добавить фото</button>
       </div>
       <ul className={styles.profile_info_main}>
         <li className={styles.profile_info_main_li}>

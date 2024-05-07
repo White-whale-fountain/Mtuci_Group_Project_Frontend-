@@ -18,7 +18,7 @@ export default function ProfileMainBlock() {
   return (
     <div className={styles.profile_main_block}>
       <img
-        src="/../../src/assets/img/profile_background.png"
+        src={profileBackground}
         alt=""
         className={styles.profile_main_background}
       />
@@ -26,6 +26,8 @@ export default function ProfileMainBlock() {
       <ProfileDescription
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
+        avatar = {props.avatar}
+        onChange={props.onChange}
       />
     </div>
   );
