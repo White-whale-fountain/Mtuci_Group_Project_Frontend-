@@ -13,6 +13,11 @@
   justify-items: center;
 }
 
+.img_placeholder_photo{
+  width: 140px;
+  height: 162px;
+}
+
 .img_placeholder_button {
   width: 80%;
   font: 500 12px Montserrat;
