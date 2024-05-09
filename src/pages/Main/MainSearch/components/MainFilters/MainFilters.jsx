@@ -4,16 +4,16 @@ import close from "../../../public/close.png";
 import ReactSlider from "react-slider";
 import "./MainFilters.css";
 
-export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
-  const [form, setForm] = useState({
-    sex: "any",
-    age: [17, 30],
-    purpose: "any",
-  });
+export default function MainFilters({
+  isOpenFilters,
+  setIsOpenFilters,
+  form,
+  setForm,
+  setRefresh,
+  refresh,
+}) {
   const [tempForm, setTempForm] = useState({
-    sex: "any",
-    age: [17, 30],
-    purpose: "any",
+    form,
   });
   function CloseFilters() {
     setIsOpenFilters(false);
@@ -23,10 +23,9 @@ export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
     setIsOpenFilters(false);
     setForm(tempForm);
   }
-
   return (
     <div className={styles.btns}>
-      <button className={styles.btn_img}>
+      <button className={styles.btn_img} onClick={() => setRefresh(!refresh)}>
         <img
           src="/../../src/assets/img/refresh.png"
           alt=""
@@ -62,16 +61,16 @@ export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
                 <label>
                   <button
                     style={
-                      tempForm.sex === "Male"
+                      tempForm.sex == "Male"
                         ? { backgroundColor: "#26A0F8" }
                         : {}
                     }
                     type="radio"
                     name="sex"
                     className={styles.radio_input}
-                    value={"Male"}
+                    value={["Male"]}
                     onClick={(e) =>
-                      setTempForm({ ...tempForm, sex: e.target.value })
+                      setTempForm({ ...tempForm, sex: [e.target.value] })
                     }
                   >
                     Мужчины
@@ -80,16 +79,16 @@ export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
                 <label>
                   <button
                     style={
-                      tempForm.sex === "Female"
+                      tempForm.sex == "Female"
                         ? { backgroundColor: "#26A0F8" }
                         : {}
                     }
                     type="radio"
                     name="sex"
                     className={styles.radio_input}
-                    value={"Female"}
+                    value={["Female"]}
                     onClick={(e) =>
-                      setTempForm({ ...tempForm, sex: e.target.value })
+                      setTempForm({ ...tempForm, sex: [e.target.value] })
                     }
                   >
                     Женщины
@@ -98,16 +97,17 @@ export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
                 <label>
                   <button
                     style={
-                      tempForm.sex === "any"
+                      tempForm.sex.includes("Female") &&
+                      tempForm.sex.includes("Male")
                         ? { backgroundColor: "#26A0F8", width: "43px" }
                         : { width: "43px" }
                     }
                     type="radio"
                     name="sex"
                     className={styles.radio_input}
-                    value={"any"}
+                    value={["Female", "Male"]}
                     onClick={(e) =>
-                      setTempForm({ ...tempForm, sex: e.target.value })
+                      setTempForm({ ...tempForm, sex: ["Female", "Male"] })
                     }
                   >
                     Все
@@ -144,16 +144,19 @@ export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
                 <label>
                   <button
                     style={
-                      tempForm.purpose === "friendship"
+                      tempForm.dating_purpose == "Дружба"
                         ? { backgroundColor: "#26A0F8", width: "84px" }
                         : { width: "84px" }
                     }
                     type="radio"
-                    name="purpose"
+                    name="dating_purpose"
                     className={styles.radio_input}
-                    value={"friendship"}
+                    value={["Дружба"]}
                     onClick={(e) =>
-                      setTempForm({ ...tempForm, purpose: e.target.value })
+                      setTempForm({
+                        ...tempForm,
+                        dating_purpose: [e.target.value],
+                      })
                     }
                   >
                     Дружба
@@ -162,16 +165,19 @@ export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
                 <label>
                   <button
                     style={
-                      tempForm.purpose === "relationships"
+                      tempForm.dating_purpose == "Отношения"
                         ? { backgroundColor: "#26A0F8", width: "100px" }
                         : { width: "100px" }
                     }
                     type="radio"
-                    name="purpose"
+                    name="dating_purpose"
                     className={styles.radio_input}
-                    value={"relationships"}
+                    value={["Отношения"]}
                     onClick={(e) =>
-                      setTempForm({ ...tempForm, purpose: e.target.value })
+                      setTempForm({
+                        ...tempForm,
+                        dating_purpose: [e.target.value],
+                      })
                     }
                   >
                     Отношения
@@ -180,16 +186,20 @@ export default function MainFilters({ isOpenFilters, setIsOpenFilters }) {
                 <label>
                   <button
                     style={
-                      tempForm.purpose === "any"
+                      tempForm.dating_purpose.includes("Отношения") &&
+                      tempForm.dating_purpose.includes("Дружба")
                         ? { backgroundColor: "#26A0F8", width: "43px" }
                         : { width: "43px" }
                     }
                     type="radio"
-                    name="sex"
+                    name="dating_purpose"
                     className={styles.radio_input}
-                    value={"any"}
+                    value={["Отношения", "Дружба"]}
                     onClick={(e) =>
-                      setTempForm({ ...tempForm, purpose: e.target.value })
+                      setTempForm({
+                        ...tempForm,
+                        dating_purpose: ["Отношения", "Дружба"],
+                      })
                     }
                   >
                     Нет

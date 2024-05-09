@@ -1,6 +1,6 @@
 .back {
   display: flex;
-  max-width: 1030px;
+  width: 1030px;
   height: 84vh;
   column-gap: 50px;
   flex-wrap: wrap;

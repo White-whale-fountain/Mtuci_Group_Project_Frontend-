@@ -6,7 +6,12 @@ import Select from "react-select";
 import { group } from "../../../../../const/groups";
 import { dating_purpose } from "../../../../../const/purposes";
 
-export default function ProfileTabPersonalInfo({ personalInfo, setPersonalInfo, avatar, setModal}) {
+export default function ProfileTabPersonalInfo({
+  personalInfo,
+  setPersonalInfo,
+  avatar,
+  setModal,
+}) {
   const aboutMeTextAreaRef = useRef(null);
   const educationTextAreaRef = useRef(null);
   const interestsTextAreaRef = useRef(null);
@@ -15,7 +20,7 @@ export default function ProfileTabPersonalInfo({ personalInfo, setPersonalInfo, 
   const [nowPersonalInfo, setNowPersonalInfo] = useState([]);
   const [currentGroup, setCurrentGroup] = useState("");
   const [currentPurposes, setCurrentPurposes] = useState("");
-
+  console.log(personalInfo);
 
   useEffect(() => {
     if (aboutMeTextAreaRef.current) {
@@ -66,7 +71,7 @@ export default function ProfileTabPersonalInfo({ personalInfo, setPersonalInfo, 
         ? group.find((c) => c.value === personalInfo.group)
         : "";
     } else {
-      return personalInfo.group
+      return personalInfo.dating_purpose
         ? dating_purpose.find((c) => c.value === personalInfo.dating_purpose)
         : "";
     }
@@ -77,18 +82,15 @@ export default function ProfileTabPersonalInfo({ personalInfo, setPersonalInfo, 
     const property = opt.name;
     const updatePersonalInfo = UpdatedPersonalInfo(property, value);
     return setPersonalInfo(updatePersonalInfo);
-
   }
 
   return (
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
-        <img
-          src={avatar}
-          alt=""
-          className={styles.img_placeholder_photo}
-        />
-        <button className={styles.img_placeholder_button} onClick={setModal}>Добавить фото</button>
+        <img src={avatar} alt="" className={styles.img_placeholder_photo} />
+        <button className={styles.img_placeholder_button} onClick={setModal}>
+          Добавить фото
+        </button>
       </div>
       <ul className={styles.profile_info_main}>
         <li className={styles.profile_info_main_li}>
