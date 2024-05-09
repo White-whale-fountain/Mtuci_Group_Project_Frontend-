@@ -80,7 +80,13 @@ export default function MainCards({ setModal, setIsOpenFilters }) {
               {onFocus & (onFocusName === key) ? (
                 <div className={styles.focus_block}>
                   <button className={styles.focus_btn} onClick={setModal}>
-                    <img src={info} alt="Инфо" className={styles.focus_img} />
+                    <img
+                      src={info}
+                      alt="Инфо"
+                      className={styles.focus_img}
+                      width={"70px"}
+                      height={"70px"}
+                    />
                   </button>
                 </div>
               ) : (
