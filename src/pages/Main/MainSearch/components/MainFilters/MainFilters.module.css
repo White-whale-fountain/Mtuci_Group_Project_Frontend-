@@ -1,0 +1,140 @@
+.btns {
+  display: flex;
+  gap: 10px;
+  margin-left: 70px;
+  padding: none;
+}
+
+.btn_img {
+  height: 35px;
+  width: 35px;
+  background-color: #f4f4f466;
+  border: none;
+}
+
+.btn_img:hover {
+  height: 40px;
+  width: 40px;
+}
+
+.img:hover {
+  height: 40px;
+  width: 40px;
+}
+
+.img {
+  height: 35px;
+  width: 35px;
+}
+
+.filters_menu {
+  position: relative;
+}
+
+.filters_menu_list {
+  position: absolute;
+  width: 299px;
+  height: 373px;
+  top: 45px;
+  right: 0px;
+  background-color: #fff;
+  box-shadow: -9px -9px 35px -25px #000000;
+  box-shadow: 9px 9px 35px -25px #000000;
+  list-style: none;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.filters_cancel {
+  position: absolute;
+  background-color: #fff;
+  border: none;
+  height: 25px;
+  width: 25px;
+  right: 9px;
+  top: 9px;
+}
+
+.section {
+  position: relative;
+  width: 229px;
+  height: 64px;
+  /* background-color: red; */
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 35px;
+}
+
+.section p {
+  font: 700 14px Montserrat;
+  margin-left: 5px;
+}
+
+.choise {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  column-gap: 9px;
+}
+
+.radio_input {
+  width: 84px;
+  height: 28px;
+  border-radius: 10px;
+  font: 700 12px Montserrat;
+  line-height: 14.63px;
+  background-color: #26a0f84d;
+  color: white;
+  border: none;
+}
+
+.choice input[type="radio"]:checked + span {
+  box-shadow: 0 0 0 0.0625em #0043ed;
+  background-color: #dee7ff;
+  z-index: 103;
+  color: #0043ed;
+}
+
+.slider_main {
+  position: absolute;
+  bottom: 0px;
+  left: 10px;
+}
+.slider_main p {
+  font: 700 13px Montserrat;
+  line-height: 15.85px;
+  color: #d1d5dd;
+  position: absolute;
+  right: 0px;
+  bottom: 20px;
+}
+
+.slider {
+  width: 206px;
+  height: 11px;
+  bottom: 0px;
+  background-color: #bee3fd;
+}
+.slider_thumb {
+  width: 8.25px;
+  height: 22px;
+  background-color: #ffffff;
+  border: 2px solid #26a0f8;
+  top: -7px;
+}
+
+
+
+.save {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  height: 30.98px;
+  width: 95px;
+  border-radius: 10px;
+  border: none;
+  background-color: #10cf23d1;
+  font: 600 14px Montserrat;
+  line-height: 17.07px;
+  color: white;
+}

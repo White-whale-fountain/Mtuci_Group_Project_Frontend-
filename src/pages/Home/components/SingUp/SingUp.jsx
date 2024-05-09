@@ -196,6 +196,7 @@ export default function SingUp() {
                   name="age"
                   placeholder=""
                   max="99"
+                  min="17"
                   value={formik.values.age}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}

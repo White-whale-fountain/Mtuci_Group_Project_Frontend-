@@ -1,0 +1,102 @@
+.bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(180, 180, 180, 0.5);
+  z-index: 1;
+  /* height: 10000px; */
+}
+
+.profile_card_main {
+  background: #ffffff;
+  width: 350px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 0 14px 3px #00000046;
+  z-index: 101;
+  margin-top: -130px;
+  padding: 30px 20px 40px 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.profile_close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  height: 30px;
+  width: 30px;
+  border: none;
+  background: none;
+}
+.profile_go {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  height: 30px;
+  width: 22px;
+  border: none;
+  background: none;
+}
+
+.edit {
+  position: absolute;
+  right: 30px;
+  border: none;
+  background-color: white;
+}
+
+.profile_card_main_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile_card_main_header img {
+  width: 130px;
+  height: 130px;
+  border-radius: 100px;
+}
+
+.profile_card_main_header {
+  font: 600 20px Montserrat;
+}
+
+.profile_card_main_header p {
+  padding-top: 15px;
+}
+
+.profile_card_main_header span {
+  padding-top: 5px;
+  color: #a3a3a3;
+  font: 600 16px Montserrat;
+}
+
+.profile_card_main_info hr {
+  border: 1px #a3a3a355 solid;
+  margin-top: 15px;
+}
+
+.profile_card_main_info p {
+  padding-top: 15px;
+  font: 600 14px Montserrat;
+  color: #a3a3a3;
+}
+
+.profile_card_main_info span {
+  color: #26a0f8;
+  float: right;
+}
+
+.profile_card_main_description {
+  font: 500 15px Montserrat;
+  color: #333333;
+  padding-top: 20px;
+  hyphens: auto;
+  word-wrap: break-word;
+}

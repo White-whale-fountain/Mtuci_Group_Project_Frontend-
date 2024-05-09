@@ -1,0 +1,50 @@
+.back {
+  display: flex;
+  max-width: 1030px;
+  height: 84vh;
+  column-gap: 50px;
+  flex-wrap: wrap;
+  /* color: rgba(40, 40, 40, 0.9); */
+}
+
+.card {
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 295px;
+  width: 220px;
+  border-radius: 10px;
+}
+
+.card_bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 22px;
+  font: 700 18px Montserrat;
+  color: white;
+  line-height: 21.94px;
+}
+
+.focus_block {
+  position: absolute;
+  background-color: #26a0f8c2;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  z-index: 1;
+}
+
+.focus_btn {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  width: 40px;
+  height: 40px;
+  left: 65px;
+  top: 100px;
+}
+
+.focus_img {
+  /* background-color: none; */
+}

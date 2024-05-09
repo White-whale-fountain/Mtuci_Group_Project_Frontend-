@@ -20,6 +20,8 @@ export default function MainSideBar() {
             src="/../../src/assets/img/home.png"
             alt="home"
             id={styles.home_button}
+            width={"92px"}
+            height={"28px"}
           />
         </Link>
         <Link to={`/${user}`} className={styles.nav_button}>

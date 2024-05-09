@@ -14,6 +14,8 @@ export default function MainHeader() {
         src="/../../src/assets/img/home_header.png"
         alt="profile"
         className={styles.main_header_profile}
+        width={"108px"}
+        height={"26.53px"}
       />
       <div className={styles.main_right}>
         <img

@@ -1,6 +1,8 @@
+import { useState } from "react";
 import styles from "./Main.module.css";
 import MainHeader from "./MainHeader/MainHeader";
 import MainSideBar from "./MainSIdeBar/MainSideBar";
+import MainSearch from "./MainSearch/MainSearch";
 
 export default function Main() {
   return (
@@ -8,7 +10,7 @@ export default function Main() {
       <MainSideBar />
       <div className={styles.profile_main}>
         <MainHeader />
-        {/* <ProfileMainBlock /> */}
+        <MainSearch />
       </div>
     </div>
   );

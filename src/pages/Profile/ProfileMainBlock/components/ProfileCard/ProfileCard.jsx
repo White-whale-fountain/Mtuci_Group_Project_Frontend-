@@ -1,7 +1,6 @@
 import styles from "./ProfileCard.module.css";
 
 export default function ProfileCard({ personalInfo, avatar }) {
-  console.log(personalInfo)
   return (
     <div className={styles.profile_card_main}>
       <div className={styles.profile_card_main_header}>
