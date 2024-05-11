@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./MainSearch.module.css";
 import MainCards from "./components/MainCards/MainCards";
 import MainFilters from "./components/MainFilters/MainFilters";
-import { mainCards } from "../../../service/mainCards";
+import { cards } from "../../../service/mainCards";
 
 export default function MainSearch() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -17,7 +17,7 @@ export default function MainSearch() {
 
   useEffect(() => {
     async function takeCards() {
-      const response = await mainCards(user, form);
+      const response = await cards.mainCards(user, form);
       setData(response);
     }
     takeCards();

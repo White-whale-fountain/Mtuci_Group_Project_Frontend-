@@ -7,6 +7,7 @@ export default function MainCards({ setModal, setIsOpenFilters, data }) {
   const [onFocus, setOnFocus] = useState(false);
   const [onFocusName, setOnFocusName] = useState("");
   const [cardModal, setCardModal] = useState(false);
+  const [tempLogin, setTempLogin] = useState("");
 
   function setModal() {
     setCardModal(!cardModal);
@@ -18,12 +19,8 @@ export default function MainCards({ setModal, setIsOpenFilters, data }) {
     setOnFocus(show);
     setOnFocusName(key);
   }
-
   return (
     <>
-      {cardModal && (
-        <CardInfo cardModal={cardModal} setCardModal={setCardModal} />
-      )}
       <div className={styles.back}>
         {Object.values(data).map((value) => {
           return (
@@ -41,9 +38,15 @@ export default function MainCards({ setModal, setIsOpenFilters, data }) {
               onMouseEnter={() => handleHover(true, value.login)}
               onMouseLeave={() => handleHover(false, value.login)}
             >
+              {/* {console.log(value)} */}
               {onFocus & (onFocusName === value.login) ? (
                 <div className={styles.focus_block}>
-                  <button className={styles.focus_btn} onClick={setModal}>
+                  <button
+                    className={styles.focus_btn}
+                    onClick={() => {
+                      setModal(), setTempLogin(value.login);
+                    }}
+                  >
                     <img
                       src={info}
                       alt="Инфо"
@@ -66,6 +69,9 @@ export default function MainCards({ setModal, setIsOpenFilters, data }) {
           );
         })}
       </div>
+      {cardModal && (
+        <CardInfo setCardModal={setCardModal} tempLogin={tempLogin} />
+      )}
     </>
   );
 }

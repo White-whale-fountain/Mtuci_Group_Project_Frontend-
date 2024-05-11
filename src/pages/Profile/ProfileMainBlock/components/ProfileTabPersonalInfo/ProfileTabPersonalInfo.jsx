@@ -20,7 +20,6 @@ export default function ProfileTabPersonalInfo({
   const [nowPersonalInfo, setNowPersonalInfo] = useState([]);
   const [currentGroup, setCurrentGroup] = useState("");
   const [currentPurposes, setCurrentPurposes] = useState("");
-  console.log(personalInfo);
 
   useEffect(() => {
     if (aboutMeTextAreaRef.current) {
