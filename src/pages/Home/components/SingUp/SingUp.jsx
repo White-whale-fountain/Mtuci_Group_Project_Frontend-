@@ -101,6 +101,7 @@ export default function SingUp() {
                     placeholder={"Введите имя"}
                     className={styles.form_input}
                     name={"name"}
+                    maxLength={15}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.name}
@@ -195,7 +196,7 @@ export default function SingUp() {
                   id="age"
                   name="age"
                   placeholder=""
-                  max="99"
+                  max="30"
                   min="17"
                   value={formik.values.age}
                   onChange={formik.handleChange}

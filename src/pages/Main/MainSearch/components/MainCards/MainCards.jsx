@@ -62,7 +62,7 @@ export default function MainCards({ setModal, setIsOpenFilters, data }) {
               <div className={styles.card_bottom}>
                 <p>{value.name}</p>
                 <p>
-                  {value.age}, {value.sex}
+                  {value.age}, {value.sex === "Female" ? "Ж" : "М"}
                 </p>
               </div>
             </div>

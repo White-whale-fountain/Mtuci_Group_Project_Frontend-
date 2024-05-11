@@ -1,12 +1,24 @@
 import styles from "./MainHeader.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { profile } from "../../../service/profile";
+import nullPhoto from "../public/null_photo.png";
 
 export default function MainHeader() {
   const [isOpen, setIsOpen] = useState();
+  const [avatar, setAvatar] = useState(nullPhoto);
+  const auth_user = JSON.parse(localStorage.getItem("user"));
   function leave() {
     return localStorage.removeItem("user");
   }
+
+  useEffect(() => {
+    async function takeAvatar() {
+      const response = await profile.downPhoto(auth_user);
+      return setAvatar(response);
+    }
+    takeAvatar();
+  }, []);
 
   return (
     <div className={styles.main_header}>
@@ -29,7 +41,7 @@ export default function MainHeader() {
             onClick={() => setIsOpen(!isOpen)}
           >
             <img
-              src="/../../src/assets/img/people1.png"
+              src={avatar}
               alt="logo"
               width={"45px"}
               height={"45px"}
