@@ -19,7 +19,7 @@ export default function Profile() {
       }
     };
     fetchData();
-  }, []);
+  }, [photoModal]);
   function setModal() {
     setPhotoModal(!photoModal);
   }
