@@ -22,7 +22,7 @@ export const profile = {
     formData.append("file", file);
     try {
       const response = await instanceForFiles.post(
-        `/up_photos/${user}/${avatar}`,
+          `/up_photos/${user}${avatar}`,
         formData
       );
       return response.data;
@@ -32,7 +32,7 @@ export const profile = {
   },
   async downPhoto(user,avatar) {
     try {
-      const response = await instance.post(`/down_photos/${user}/${avatar}`);
+      const response = await instance.post(`/down_photos/${user}${avatar}`);
       return response.data;
     } catch (error) {
       console.log(error);

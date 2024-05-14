@@ -9,7 +9,7 @@ import { dating_purpose } from "../../../../../const/purposes";
 export default function ProfileTabPersonalInfo({
   personalInfo,
   setPersonalInfo,
-  avatar,
+  profilePhoto,
   setModal,
 }) {
   const aboutMeTextAreaRef = useRef(null);
@@ -86,7 +86,7 @@ export default function ProfileTabPersonalInfo({
   return (
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
-        <img src={avatar} alt="" className={styles.img_placeholder_photo} />
+        <img src={profilePhoto} alt="" className={styles.img_placeholder_photo} />
         <button className={styles.img_placeholder_button} onClick={setModal}>
           Добавить фото
         </button>

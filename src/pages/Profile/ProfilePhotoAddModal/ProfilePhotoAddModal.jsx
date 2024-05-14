@@ -33,8 +33,8 @@ export default function ProfilePhotoAddModal(props) {
     setImgSrc("");
   }
 
-  async function submitPhoto() {
-    await profile.upPhoto(user, file);
+  async function submitPhoto(avatar) {
+    await profile.upPhoto(user, file, avatar);
     await closeButton()
   }
 
@@ -142,12 +142,12 @@ export default function ProfilePhotoAddModal(props) {
 
 
           <section className={styles.modal_avatar_button_section}>
-            <button onClick={submitPhoto}
+            <button onClick={() => submitPhoto('/avatar')}
                     className={styles.modal_avatar_button}
                     id='modal_avatar_button'>
               Установить как аватар
             </button>
-            <button onClick={submitPhoto} className={styles.modal_avatar_button}>
+            <button onClick={() => submitPhoto('profileImg')} className={styles.modal_avatar_button}>
               Добавить фото в профиль
             </button>
           </section>
