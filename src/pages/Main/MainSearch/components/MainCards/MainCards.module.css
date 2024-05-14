@@ -48,3 +48,24 @@
 .focus_img {
   /* background-color: none; */
 }
+
+.areNoCards {
+  /* position: absolute; */
+  /* left: 5px; */
+  /* background-color: red; */
+  width: 100%;
+  /* display: flex; */
+  text-align: center;
+}
+.areNoCards p {
+  font: 700 24px Montserrat;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+.areNoCards img {
+  /* background-color: white; */
+  width: 400px;
+  height: 400px;
+  /* box-shadow: 3px 3px 1px #ccc; */
+  -webkit-filter: drop-shadow(6px 6px grey);
+}

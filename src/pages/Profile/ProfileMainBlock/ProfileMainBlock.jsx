@@ -1,7 +1,7 @@
 import styles from "./ProfileMainBlock.module.css";
 import { profile } from "../../../service/profile.js";
 import { useState, useEffect } from "react";
-import profileBackground from "../public/profile_background.png"
+import profileBackground from "../public/profile_background.png";
 import ProfileCard from "./components/ProfileCard/ProfileCard.jsx";
 import ProfileDescription from "./components/ProfileDescription/ProfileDescription.jsx";
 
@@ -23,11 +23,11 @@ export default function ProfileMainBlock(props) {
         alt=""
         className={styles.profile_main_background}
       />
-      <ProfileCard personalInfo={personalInfo} avatar = {props.avatar} />
+      <ProfileCard personalInfo={personalInfo} avatar={props.avatar} />
       <ProfileDescription
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
-        avatar = {props.avatar}
+        avatar={props.avatar}
         setModal={props.setModal}
       />
     </div>

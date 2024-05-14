@@ -15,7 +15,7 @@
 .profile_card_main {
   background: #ffffff;
   width: 350px;
-  height: 500px;
+  min-height: 500px;
   border-radius: 10px;
   box-shadow: 0 0 14px 3px #00000046;
   z-index: 101;
@@ -82,6 +82,12 @@
   margin-top: 15px;
 }
 
+.profile_card_main_description hr {
+  border: 1px #a3a3a355 solid;
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+
 .profile_card_main_info p {
   padding-top: 15px;
   font: 600 14px Montserrat;
@@ -99,4 +105,27 @@
   padding-top: 20px;
   hyphens: auto;
   word-wrap: break-word;
+}
+
+.profile_card_main_btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 15px;
+}
+
+.profile_card_main_btn {
+  height: 60px;
+  width: 60px;
+  border: none;
+  background-color: rgba(180, 180, 180, 0);
+  margin-top: 15px;
+}
+
+.profile_card_main_btn_img {
+  height: 60px;
+  width: 60px;
 }

@@ -14,7 +14,7 @@ export default function MainSearch() {
     sex: ["Female", "Male"],
     dating_purpose: ["Отношения", "Дружба"],
   });
-
+  // console.log(idCard);
   useEffect(() => {
     async function takeCards() {
       const response = await cards.mainCards(user, form);
