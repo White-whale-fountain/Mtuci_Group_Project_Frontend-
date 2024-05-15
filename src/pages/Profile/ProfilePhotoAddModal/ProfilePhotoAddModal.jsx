@@ -142,7 +142,7 @@ export default function ProfilePhotoAddModal(props) {
 
 
           <section className={styles.modal_avatar_button_section}>
-            <button onClick={() => submitPhoto('/avatar')}
+            <button onClick={() => submitPhoto('avatar')}
                     className={styles.modal_avatar_button}
                     id='modal_avatar_button'>
               Установить как аватар

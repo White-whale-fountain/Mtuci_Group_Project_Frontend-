@@ -10,21 +10,23 @@ import nullPhoto from "./public/null_photo.png";
 export default function Profile() {
   const [photoModal, setPhotoModal] = useState(false);
   const [avatar, setAvatar] = useState(nullPhoto);
-  const [profilePhoto, setProfilePhoto] = useState(nullPhoto);
+  const [profilePhoto, setProfilePhoto] = useState([nullPhoto]);
   const login = JSON.parse(localStorage.getItem("user"));
   useEffect(() => {
     const fetchAvatarData = async () => {
-      const data = await profile.downPhoto(login, '/avatar');
+      const data = await profile.downAvatar(login);
       if (data) {
         setAvatar(data);
       }
-      const photoData = await profile.downPhoto(login,'');
+      const photoData = await profile.downPhotos(login);
       if (photoData) {
         setProfilePhoto(photoData);
       }
     };
     fetchAvatarData();
   }, [photoModal]);
+
+  console.log(profilePhoto[5])
 
   function setModal() {
     setPhotoModal(!photoModal);
