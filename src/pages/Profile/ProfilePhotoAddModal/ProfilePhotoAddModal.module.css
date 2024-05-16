@@ -1,6 +1,6 @@
 .modal_dialog {
     width: 650px;
-    min-height: 670px;
+    min-height: 630px;
     z-index: 101;
     margin: 30px auto;
     border: None;
@@ -25,7 +25,7 @@
 }
 
 .modal_dialog_header p {
-    font: 400 18px "Montserrat";
+    font: 500 19px "Montserrat";
     margin: 13px;
 }
 

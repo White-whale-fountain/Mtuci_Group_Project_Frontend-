@@ -16,6 +16,7 @@
     "formik": "^2.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-elastic-carousel": "^0.11.5",
     "react-hook-form": "^7.51.0",
     "react-image-crop": "^11.0.5",
     "react-input-autosize": "^3.0.0",
@@ -24,6 +25,7 @@
     "react-router-dom": "^6.22.2",
     "react-select": "^5.8.0",
     "react-slider": "^2.0.6",
+    "styled-components": "^6.1.11",
     "use-keypress": "^0.1.4",
     "yarn": "^1.22.21"
   },

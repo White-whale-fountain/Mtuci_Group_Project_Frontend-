@@ -52,7 +52,6 @@ export default function ProfilePhotoAddModal(props) {
         if (error) setError("");
         const {naturalWidth, naturalHeight} = e.currentTarget;
         if (naturalWidth < MIN_DIMENSION || naturalHeight < MIN_DIMENSION) {
-          setError("Image must be at least 150 x 150 pixels.");
           return setImgSrc("");
         }
       });
@@ -85,7 +84,7 @@ export default function ProfilePhotoAddModal(props) {
   async function avatarButtonClick() {
     let canvas = document.getElementById('canvas')
     if (!canvas) {
-      return
+      setError('⚠ Выберете область для обрезки!')
     } // ЕСЛИ НЕ СДИВНУТЬ ОБЛАСТЬ, НИЧЕГО НЕ ДОБАВИТСЯ
     await setCanvasPreview(
       imgRef.current, // HTMLImageElement
@@ -139,15 +138,22 @@ export default function ProfilePhotoAddModal(props) {
               />
             </ReactCrop>
           </div>
+          {error &&
+            <div className={styles.modal_avatar_errors}>
+              <p>{error}</p>
+            </div>
+          }
 
 
           <section className={styles.modal_avatar_button_section}>
             <button onClick={() => submitPhoto('avatar')}
                     className={styles.modal_avatar_button}
-                    id='modal_avatar_button'>
+                    id='modal_avatar_button'
+                    disabled={error}
+            >
               Установить как аватар
             </button>
-            <button onClick={() => submitPhoto('profileImg')} className={styles.modal_avatar_button}>
+            <button onClick={() => submitPhoto('profileImg')} className={styles.modal_avatar_button} disabled={error}>
               Добавить фото в профиль
             </button>
           </section>

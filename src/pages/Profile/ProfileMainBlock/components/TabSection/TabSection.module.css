@@ -4,11 +4,13 @@
     width: 100%;
     justify-content: space-around;
     line-height: 25px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
 .tab_section_button{
-    padding: 0.8rem 2rem;
+    width: 210px;
+    box-sizing: border-box;
+    padding: 0.8rem 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -17,7 +19,8 @@
 }
 
 .tab_section_button_active{
-    padding: 0.8rem 2rem;
+    width: 210px;
+    padding: 0.8rem 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
