@@ -5,11 +5,12 @@ import setInputHeight from "../../../../../assets/components/setInputHeight";
 import Select from "react-select";
 import { group } from "../../../../../const/groups";
 import { dating_purpose } from "../../../../../const/purposes";
+import ProfilePhotosCarousel from "../ProfilePhotosCarousel/ProfilePhotosCarousel.jsx";
 
 export default function ProfileTabPersonalInfo({
   personalInfo,
   setPersonalInfo,
-  avatar,
+  profilePhoto,
   setModal,
 }) {
   const aboutMeTextAreaRef = useRef(null);
@@ -18,8 +19,6 @@ export default function ProfileTabPersonalInfo({
   const user = JSON.parse(localStorage.getItem("user"));
   const [edit, setEdit] = useState(false);
   const [nowPersonalInfo, setNowPersonalInfo] = useState([]);
-  const [currentGroup, setCurrentGroup] = useState("");
-  const [currentPurposes, setCurrentPurposes] = useState("");
 
   useEffect(() => {
     if (aboutMeTextAreaRef.current) {
@@ -86,7 +85,10 @@ export default function ProfileTabPersonalInfo({
   return (
     <section className={styles.main_section}>
       <div className={styles.img_placeholder}>
-        <img src={avatar} alt="" className={styles.img_placeholder_photo} />
+          <div className={styles.img_carousel}>
+            <ProfilePhotosCarousel photoList = {profilePhoto} />
+          </div>
+
         <button className={styles.img_placeholder_button} onClick={setModal}>
           Добавить фото
         </button>
@@ -161,7 +163,7 @@ export default function ProfileTabPersonalInfo({
             </>
           )}
         </li>
-        <li className={styles.profile_info_main_li} style={{ paddingTop: 15 }}>
+        <li className={styles.profile_info_main_li_last} style={{ paddingTop: 15 }}>
           <b style={{ paddingLeft: 12 }}>Группа:</b>
           {!edit ? (
             personalInfo.group ? (
@@ -183,7 +185,7 @@ export default function ProfileTabPersonalInfo({
             </>
           )}
         </li>
-        <li className={styles.profile_info_main_li} style={{ paddingTop: 15 }}>
+        <li className={styles.profile_info_main_li_last}  style={{ paddingTop: 15 }}>
           <b style={{ paddingLeft: 12 }}>Цель знакомства:</b>
           {!edit ? (
             personalInfo.dating_purpose ? (

@@ -4,7 +4,7 @@ import ProfileTabPersonalInfo from "../ProfileTabPersonalInfo/ProfileTabPersonal
 import ProfileTabPreferences from "../ProfileTabPreferences/ProfileTabPreferences.jsx";
 import ProfileTabLikes from "../ProfileTabLikes/ProfileTabLikes.jsx";
 import TabSection from "../TabSection/TabSection.jsx";
-export default function ProfileDescription({ personalInfo, setPersonalInfo, avatar, setModal }) {
+export default function ProfileDescription({ personalInfo, setPersonalInfo, profilePhoto, setModal }) {
   const [tab, setTab] = useState("profilePersonalInfo");
   return (
     <div className={styles.profile_description_main}>
@@ -15,7 +15,7 @@ export default function ProfileDescription({ personalInfo, setPersonalInfo, avat
           <ProfileTabPersonalInfo
             personalInfo={personalInfo}
             setPersonalInfo={setPersonalInfo}
-            avatar={avatar}
+            profilePhoto={profilePhoto}
             setModal={setModal}
           />
         ) : null}

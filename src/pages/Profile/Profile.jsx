@@ -14,19 +14,24 @@ export default function Profile() {
   const [photoModal, setPhotoModal] = useState(false);
   const [avatar, setAvatar] = useState(nullPhoto);
   const auth_user = JSON.parse(localStorage.getItem("user"));
+  const [profilePhoto, setProfilePhoto] = useState([nullPhoto]);
   useEffect(() => {
     const fetchData = async () => {
-      const data = await profile.downPhoto(auth_user);
+      const data = await profile.downAvatar(auth_user);
       if (data) {
         setAvatar(data);
       }
+      const photoData = await profile.downPhotos(login);
+      if (photoData) {
+        setProfilePhoto(photoData);
+      }
     };
     fetchData();
-  }, []);
+  }, [photoModal]);
   function setModal() {
     setPhotoModal(!photoModal);
   }
-  // console.log(user);
+
   return (
     <div className={styles.profile}>
       <ProfilePhotoAddModal open={photoModal} setOpen={setModal} />
@@ -34,7 +39,7 @@ export default function Profile() {
       <div className={styles.profile_main}>
         <ProfileHeader auth_user={auth_user} avatar={avatar} />
         {user === auth_user ? (
-          <ProfileMainBlock setModal={setModal} avatar={avatar} />
+          <ProfileMainBlock setModal={setModal} avatar={avatar} profilePhoto = {profilePhoto} />
         ) : (
           <ProfileAlien user={user} />
         )}

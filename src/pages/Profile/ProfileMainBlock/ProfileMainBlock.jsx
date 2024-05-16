@@ -27,7 +27,7 @@ export default function ProfileMainBlock(props) {
       <ProfileDescription
         personalInfo={personalInfo}
         setPersonalInfo={setPersonalInfo}
-        avatar = {props.avatar}
+        profilePhoto = {props.profilePhoto}
         setModal={props.setModal}
       />
     </div>

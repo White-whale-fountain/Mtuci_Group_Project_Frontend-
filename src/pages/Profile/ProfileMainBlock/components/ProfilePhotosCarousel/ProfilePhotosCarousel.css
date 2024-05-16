@@ -1,0 +1,56 @@
+.img_carousel_photo {
+    width: 240px;
+    height: 260px;
+}
+
+.rec {
+    padding: 0;
+}
+
+.rec-arrow {
+    background: none !important;
+    position: absolute;
+    transition: all 0.3s ease;
+    font-size: 1.3rem !important;
+    color: white !important;
+    width: 1.7rem !important;
+    height: 1.7rem !important;
+    min-width: 1.7rem !important;
+    line-height: 1.9rem !important;
+    opacity: 1;
+}
+
+.rec-arrow:last-child {
+    left: 15px;
+    z-index: 999;
+
+}
+
+.rec-arrow:first-child {
+    right: 15px;
+    z-index: 999;
+}
+
+.rec-dot_active {
+    background-color: lightgrey !important;
+    box-shadow: 0 0 1px 3px lightgrey !important;
+}
+
+.rec-dot:focus,
+.rec-dot:hover {
+    box-shadow: 0 0 1px 3px lightgrey !important;
+}
+
+.rec-dot_active:focus,
+.rec-dot_active:hover {
+    background-color: lightgrey !important;
+    box-shadow: 0 0 1px 3px lightgrey !important;
+}
+
+.rec-arrow:hover:not(:disabled) {
+    transform: scale(1.2);
+}
+
+.rec-arrow:disabled {
+    opacity: 0.2;
+}
