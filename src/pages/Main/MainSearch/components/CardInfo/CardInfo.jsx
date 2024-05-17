@@ -46,7 +46,7 @@ export default function CardInfo({
           className={styles.profile_close}
           onClick={() => setCardModal(false)}
         >
-          <img src={close} alt="Закрыть" height={"30px"} width={"30px"} />
+          <img src={close} alt="Закрыть" height={"40px"} width={"40px"} />
         </button>
         {/* <Link to={`/${tempLogin}`}>
           <button className={styles.profile_go}>

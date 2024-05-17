@@ -25,7 +25,7 @@ export default function MainCards({ setIsOpenFilters, data }) {
   }
   useEffect(() => {
     setLengthData(Object.keys(data).length);
-  }, []);
+  });
   return (
     <>
       <div className={styles.back}>
