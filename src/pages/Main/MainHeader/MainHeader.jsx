@@ -14,7 +14,7 @@ export default function MainHeader() {
 
   useEffect(() => {
     async function takeAvatar() {
-      const response = await profile.downPhoto(auth_user);
+      const response = await profile.downAvatar(auth_user);
       return setAvatar(response);
     }
     takeAvatar();

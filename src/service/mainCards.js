@@ -15,6 +15,7 @@ export const cards = {
   async infoCard(login) {
     try {
       const response = await instance.get(`/card/${login}`);
+      console.log(response.data)
       return response.data;
     } catch (error) {
       console.log(error);

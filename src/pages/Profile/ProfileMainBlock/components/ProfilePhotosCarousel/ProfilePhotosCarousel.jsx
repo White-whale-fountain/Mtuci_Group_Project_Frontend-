@@ -8,9 +8,10 @@ export default function ProfilePhotosCarousel(photoList){
       isRTL itemsToShow={1}
       pagination={false}
       enableMouseSwipe ={false}
+      initialFirstItem = {photoList.photoList.length}
     >
-      {photoList.photoList.map((item) => (
-        <div key={item.index}>
+      {photoList.photoList.map((item, count) => (
+        <div key={count}>
           <img src={item} alt="ProfilePhoto" className={"img_carousel_photo"}/>
         </div>
         ))}

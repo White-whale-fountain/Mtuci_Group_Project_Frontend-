@@ -102,6 +102,7 @@
     text-align: center;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-bottom: 15px;
 }
 
 .modal_content_label {

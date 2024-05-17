@@ -21,7 +21,7 @@ export default function Profile() {
       if (data) {
         setAvatar(data);
       }
-      const photoData = await profile.downPhotos(login);
+      const photoData = await profile.downPhotos(auth_user);
       if (photoData) {
         setProfilePhoto(photoData);
       }

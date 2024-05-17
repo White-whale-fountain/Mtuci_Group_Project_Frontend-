@@ -53,7 +53,7 @@ export default function MainFilters({
               className={styles.filters_cancel}
               onClick={() => CloseFilters()}
             >
-              <img src={close} alt="" width={25} height={25} />
+              <img src={close} alt="" width={35} height={35} />
             </button>
             <div className={styles.section}>
               <p>Показывать</p>
@@ -62,8 +62,9 @@ export default function MainFilters({
                   <button
                     style={
                       tempForm.sex == "Male"
-                        ? { backgroundColor: "#26A0F8" }
-                        : {}
+                        ? { backgroundColor: "#26A0F8",  cursor: "pointer"
+ }
+                        : {cursor: "pointer"}
                     }
                     type="radio"
                     name="sex"
@@ -80,8 +81,8 @@ export default function MainFilters({
                   <button
                     style={
                       tempForm.sex == "Female"
-                        ? { backgroundColor: "#26A0F8" }
-                        : {}
+                        ? { backgroundColor: "#26A0F8",cursor: "pointer" }
+                        : {cursor: "pointer"}
                     }
                     type="radio"
                     name="sex"
@@ -99,8 +100,8 @@ export default function MainFilters({
                     style={
                       tempForm.sex.includes("Female") &&
                       tempForm.sex.includes("Male")
-                        ? { backgroundColor: "#26A0F8", width: "43px" }
-                        : { width: "43px" }
+                        ? { backgroundColor: "#26A0F8", width: "43px", cursor: "pointer"}
+                        : { width: "43px", cursor: "pointer" }
                     }
                     type="radio"
                     name="sex"
@@ -145,8 +146,8 @@ export default function MainFilters({
                   <button
                     style={
                       tempForm.dating_purpose == "Дружба"
-                        ? { backgroundColor: "#26A0F8", width: "84px" }
-                        : { width: "84px" }
+                        ? { backgroundColor: "#26A0F8", width: "84px",cursor: "pointer" }
+                        : { width: "84px",cursor: "pointer" }
                     }
                     type="radio"
                     name="dating_purpose"
@@ -166,8 +167,8 @@ export default function MainFilters({
                   <button
                     style={
                       tempForm.dating_purpose == "Отношения"
-                        ? { backgroundColor: "#26A0F8", width: "100px" }
-                        : { width: "100px" }
+                        ? { backgroundColor: "#26A0F8", width: "100px",cursor: "pointer" }
+                        : { width: "100px",cursor: "pointer" }
                     }
                     type="radio"
                     name="dating_purpose"
@@ -188,8 +189,8 @@ export default function MainFilters({
                     style={
                       tempForm.dating_purpose.includes("Отношения") &&
                       tempForm.dating_purpose.includes("Дружба")
-                        ? { backgroundColor: "#26A0F8", width: "43px" }
-                        : { width: "43px" }
+                        ? { backgroundColor: "#26A0F8", width: "43px", cursor: "pointer"}
+                        : { width: "43px", cursor: "pointer" }
                     }
                     type="radio"
                     name="dating_purpose"

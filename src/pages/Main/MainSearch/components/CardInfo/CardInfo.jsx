@@ -23,6 +23,7 @@ export default function CardInfo({
     });
   useEffect(() => {
     async function takeInfoForCard() {
+      console.log(logins)
       const response = await cards.infoCard(logins[currentIdCard % lengthData]);
       setCardData(response);
     }
