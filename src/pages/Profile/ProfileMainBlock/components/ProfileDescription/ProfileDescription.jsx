@@ -8,7 +8,7 @@ export default function ProfileDescription({ personalInfo, setPersonalInfo, prof
   const [tab, setTab] = useState("profilePersonalInfo");
   return (
     <div className={styles.profile_description_main}>
-      <TabSection tab={tab} onTab={(current) => setTab(current)} />
+      <TabSection tab={tab} onTab={(current) => setTab(current)} myProfile ={true} />
       <hr />
       <div>
         {tab === "profilePersonalInfo" ? (

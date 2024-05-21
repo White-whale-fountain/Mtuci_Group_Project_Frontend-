@@ -1,0 +1,14 @@
+.main_block_container{
+    width: 650px;
+    height: 450px;
+    background-color: #FFFFFF;
+    padding: 10px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.main_block_container hr{
+    width: 570px;
+    margin: auto;
+}

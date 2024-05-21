@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./ProfileSideBar.module.css";
 
-export default function MainSideBar() {
+export default function MainSideBar({ user }) {
   return (
     <nav className={styles.sidebar_nav}>
       <div className={styles.nav_logo}>
@@ -16,7 +16,7 @@ export default function MainSideBar() {
         <Link to={"/main"} className={styles.nav_button}>
           <img src="/../../src/assets/img/home_disable.png" alt="home" />
         </Link>
-        <Link to={``} className={styles.nav_button}>
+        <Link to={`/${user}`} className={styles.nav_button}>
           <img
             src="/../../src/assets/img/profile.png"
             alt="profile"

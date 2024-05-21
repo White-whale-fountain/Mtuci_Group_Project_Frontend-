@@ -1,0 +1,51 @@
+.profile_info_main_container{
+  display: flex;
+  padding: 20px;
+  justify-content: space-around;
+}
+
+.profile_info_main1 {
+  font: 700 15px Montserrat;
+  list-style: none;
+  padding-left: 16px;
+  width: 500px;
+  height: 300px;
+}
+
+.profile_info_main1 p {
+  padding-top: 4px;
+  font: 600 15px Montserrat;
+  color: #a3a3a3;
+  word-wrap: break-word;
+}
+.profile_info_main1 li {
+  width: 200px;
+  margin-right: 35px;
+  min-height: 40px;
+  padding-bottom: 0;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.profile_info_main2 {
+  font: 700 15px Montserrat;
+  list-style: none;
+  padding-left: 16px;
+  width: 500px;
+  height: 300px;
+}
+
+.profile_info_main2 p {
+  padding-top: 4px;
+  font: 600 15px Montserrat;
+  color: #a3a3a3;
+  word-wrap: break-word;
+}
+.profile_info_main2 li {
+  width: 254px;
+  margin-right: 35px;
+  min-height: 40px;
+  padding-bottom: 0;
+  text-align: left;
+  margin-top: 30px;
+}

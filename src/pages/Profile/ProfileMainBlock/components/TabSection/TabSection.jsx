@@ -1,6 +1,6 @@
 import styles from "./TabSection.module.css"
 
-export default function TabSection({ tab, onTab }){
+export default function TabSection({tab, onTab, myProfile} ){
     return(
         <div className={styles.tab_section}>
             <button
@@ -15,12 +15,15 @@ export default function TabSection({ tab, onTab }){
             >
                 Предпочтения в людях
             </button>
+            {myProfile &&
             <button
                 onClick={() =>  onTab("profileLikes")}
                 className={tab === "profileLikes"? styles.tab_section_button_active: styles.tab_section_button}
             >
                 Понравившиеся
             </button>
+            }
+
         </div>
 
     )

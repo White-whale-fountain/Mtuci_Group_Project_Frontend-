@@ -35,7 +35,7 @@ export default function Profile() {
   return (
     <div className={styles.profile}>
       <ProfilePhotoAddModal open={photoModal} setOpen={setModal} />
-      <ProfileSideBar />
+      <ProfileSideBar user = {auth_user} />
       <div className={styles.profile_main}>
         <ProfileHeader auth_user={auth_user} avatar={avatar} />
         {user === auth_user ? (

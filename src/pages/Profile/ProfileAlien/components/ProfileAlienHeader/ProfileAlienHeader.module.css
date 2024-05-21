@@ -1,0 +1,40 @@
+.header_container{
+    width: 1200px;
+    height: 70px;
+    display: flex;
+    margin: auto;
+    padding-top: 30px;
+    justify-content: space-between;
+}
+
+.header_main_info{
+    display: flex;
+    text-align: center;
+}
+.header_main_info p{
+    font: 600 24px 'Montserrat';
+    color: white;
+}
+
+.like_svg{
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 36px;
+    height: 36px;
+}
+.like_svg:active{
+    scale: 0.8;
+    transition: all 0.1s;
+}
+
+.header_container button{
+    border: none;
+    background: none;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+.header_container img{
+    width: 36px;
+    height: 36px;
+}

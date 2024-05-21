@@ -24,7 +24,8 @@
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    z-index: 104;
+    z-index: 999;
+    position: relative;
 }
 
 .preferences_main_block button:hover{
@@ -34,7 +35,7 @@
 
 .preferences_main_block img{
     position: absolute;
-    z-index: 103;
+    z-index: 1;
     left: 0;
     bottom: 0;
 }
