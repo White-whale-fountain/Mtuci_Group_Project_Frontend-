@@ -7,22 +7,18 @@
 }
 
 .btn_img {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
   background-color: #f4f4f466;
   border: none;
   cursor: pointer;
 }
 
-.btn_img:hover {
-  height: 40px;
-  width: 40px;
-
-}
-
 .img:hover {
-  height: 40px;
-  width: 40px;
+  scale: 115%;
 }
 
 .img {

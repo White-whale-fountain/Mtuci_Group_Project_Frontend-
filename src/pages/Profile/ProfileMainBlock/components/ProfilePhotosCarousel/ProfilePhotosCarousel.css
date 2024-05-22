@@ -20,13 +20,13 @@
     opacity: 1;
 }
 
-.rec-arrow:last-child {
+.rec-arrow-right {
     left: 15px;
     z-index: 999;
 
 }
 
-.rec-arrow:first-child {
+.rec-arrow-left {
     right: 15px;
     z-index: 999;
 }

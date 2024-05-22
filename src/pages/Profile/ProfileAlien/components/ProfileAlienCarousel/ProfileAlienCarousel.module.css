@@ -1,0 +1,66 @@
+.img_alien_carousel_photo {
+    width: 385px;
+    height: 395px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.img_alien_carousel_container{
+    position: relative;
+}
+
+.profile_alien_custom_arrows{
+    background: none !important;
+    position: absolute;
+    padding: 3px !important;
+    border-radius: 30px !important;
+    transition: all 0.3s ease;
+    font-size: 2.5rem !important;
+    color: #6c6c6c68 !important;
+    width: 6rem !important;
+    height: 6rem !important;
+    min-width: 1.7rem !important;
+    line-height: 1.9rem !important;
+    opacity: 1;
+    border: none;
+    cursor: pointer;
+    margin-top: 175px;
+}
+
+.profile_alien_custom_arrows:last-child {
+    left: -25px;
+    z-index: 999;
+}
+
+.profile_alien_custom_arrows:first-child {
+    right: -25px;
+    z-index: 999;
+}
+
+.profile_alien_custom_arrows:hover{
+    /*background: radial-gradient(#00000099, #ffffff22) !important;*/
+    color: #4d4d4d !important;
+}
+
+.profile_alien_custom_arrows:active{
+    /*background: radial-gradient(#00000099, #ffffff22) !important;*/
+    animation: clickOnCustomArrows 3s;
+}
+
+.profile_alien_custom_arrows:disabled{
+    cursor: auto;
+    color: #6c6c6c14 !important;
+}
+
+
+@keyframes clickOnCustomArrows {
+    0%{
+        scale: 100%;
+    }
+    10%{
+        scale: 80%;
+    }
+    100%{
+        scale: 100%;
+    }
+}

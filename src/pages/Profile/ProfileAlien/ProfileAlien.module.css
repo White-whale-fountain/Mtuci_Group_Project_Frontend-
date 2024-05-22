@@ -1,8 +1,8 @@
 .profile_alien_container{
-    width: 1300px;
-    height: 600px;
+    width: 1330px;
+    height: 620px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     background: linear-gradient(180deg, #2399EDA6 0%, #ECB6FFA6 100%);
     border-radius: 10px;
 }
@@ -14,9 +14,10 @@
 }
 
 .profile_alien_caruosel{
-    width: 450px;
+    width: 470px;
     height: 450px;
     border-radius: 10px;
     background-color: #FFFFFF;
     position: relative;
+
 }

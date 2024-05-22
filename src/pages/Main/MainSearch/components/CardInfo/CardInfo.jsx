@@ -81,7 +81,7 @@ export default function CardInfo({
           <hr />
         </div>
         <div className={styles.profile_card_main_btns}>
-          <Link to={`/${tempLogin}`}>
+          <Link to={`/${tempLogin}`} target={"_blank"}>
             <button className={styles.profile_card_main_btn}>
               <img
                 src={chel}
