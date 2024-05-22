@@ -1,42 +1,67 @@
 import styles from "./CardInfo.module.css";
 import close from "../../../public/close.png";
 import chel from "../../../public/chel.png";
-import like from "../../../public/like.png";
+import likeEnabled from "../../../public/likeEnabled.png";
+import likeDisabled from "../../../public/likeDisabled.png";
 import swipe from "../../../public/swipe.png";
 import { useEffect, useState } from "react";
 import { cards } from "../../../../../service/mainCards.js";
-import { Link } from "react-router-dom";
+import { Link, json } from "react-router-dom";
+import { likes } from "../../../../../service/likes.js";
 
 export default function CardInfo({
   setCardModal,
   tempLogin,
+  setTempLogin,
   currentIdCard,
   setCurrentIdCard,
   data,
   lengthData,
 }) {
+  const authUser = JSON.parse(localStorage.getItem("user"));
   const [logins, setLogins] = useState([]);
   const [cardData, setCardData] = useState([]);
+  const [lightLike, setLightLike] = useState(false);
   logins.length != lengthData &&
     Object.values(data).map((array) => {
       setLogins((prev) => [...prev, array.login]);
     });
   useEffect(() => {
+    setTempLogin(logins[currentIdCard % lengthData]);
+
     async function takeInfoForCard() {
       const response = await cards.infoCard(logins[currentIdCard % lengthData]);
       setCardData(response);
     }
     takeInfoForCard();
+
     document.addEventListener("keydown", handleEscapeDown);
     return () => {
       document.removeEventListener("keydown", handleEscapeDown);
     };
   }, [currentIdCard]);
+  useEffect(() => {
+    async function checkLike() {
+      const response = await likes.checkLike(authUser, tempLogin);
+      setLightLike(response);
+    }
+    checkLike();
+  }, [tempLogin]);
+
+  useEffect(() => {}, [lightLike]);
+
   const handleEscapeDown = (event) => {
     if (event.key === "Escape") {
       setCardModal(false);
     }
   };
+
+  async function putLike() {
+    const response = await likes.putLike(authUser, tempLogin);
+    if (response === 204) {
+      setLightLike(!lightLike);
+    }
+  }
 
   return (
     <div className={styles.bg}>
@@ -89,9 +114,9 @@ export default function CardInfo({
               />
             </button>
           </Link>
-          <button className={styles.profile_card_main_btn}>
+          <button className={styles.profile_card_main_btn} onClick={putLike}>
             <img
-              src={like}
+              src={lightLike ? likeEnabled : likeDisabled}
               alt=""
               className={styles.profile_card_main_btn_img}
             />
