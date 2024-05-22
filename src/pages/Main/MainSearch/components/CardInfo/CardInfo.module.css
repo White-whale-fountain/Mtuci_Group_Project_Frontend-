@@ -129,3 +129,23 @@
   width: 60px;
   cursor: pointer;
 }
+
+.profile_card_main_btn_img:hover {
+  scale: 105%;
+}
+
+.profile_card_main_btn_img:active {
+  animation: clickOnCustomArrows 2s;
+}
+
+@keyframes clickOnCustomArrows {
+  0% {
+    scale: 100%;
+  }
+  5% {
+    scale: 85%;
+  }
+  100% {
+    scale: 100%;
+  }
+}
