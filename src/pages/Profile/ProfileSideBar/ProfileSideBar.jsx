@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./ProfileSideBar.module.css";
+import photo from "../public/photo.png"
 
 export default function MainSideBar() {
   return (
