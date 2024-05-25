@@ -1,5 +1,5 @@
 import styles from './ProfileAlienHeader.module.css'
-import backward_button from '../../../public/backward_btn.png'
+import backward_button from '../../../../public/backward_btn.png'
 import {useState} from "react";
 import {Link} from "react-router-dom";
 

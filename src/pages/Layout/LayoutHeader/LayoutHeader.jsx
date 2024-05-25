@@ -1,13 +1,12 @@
-import styles from "./ProfileHeader.module.css";
-import {useState} from "react";
+import styles from "./LayoutHeader.module.css";
+import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import profile from "../public/profile.png"
-import bell from "../public/bell.png"
-import vectorDropdown from "../public/profile_vector_dropdown.png"
+import profile from "../../public/profile.png"
+import bell from "../../public/bell.png"
+import vectorDropdown from "../../public/profile_vector_dropdown.png"
 
-export default function ProfileHeader(props) {
+export default function LayoutHeader(props) {
   const [isOpen, setIsOpen] = useState();
-
   function leave() {
     return localStorage.removeItem("user");
   }

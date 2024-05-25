@@ -1,5 +1,5 @@
 import styles from './ProfileTabLikes.module.css'
-import happyPeople from '../../../public/people2.png'
+import happyPeople from '../../../../public/people2.png'
 import {NavLink} from "react-router-dom";
 export default function ProfileTabLikes(){
     return(

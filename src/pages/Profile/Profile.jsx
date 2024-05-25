@@ -1,11 +1,11 @@
 import styles from "./Profile.module.css";
-import ProfileSideBar from "./ProfileSideBar/ProfileSideBar.jsx";
-import ProfileHeader from "./ProfileHeader/ProfileHeader.jsx";
+import LayoutHeader from "../Layout/LayoutHeader/LayoutHeader.jsx";
+import LayoutSideBar from "../Layout/LayoutSideBar/LayoutSideBar.jsx";
 import ProfileMainBlock from "./ProfileMainBlock/ProfileMainBlock.jsx";
 import { useEffect, useState } from "react";
 import ProfilePhotoAddModal from "./ProfilePhotoAddModal/ProfilePhotoAddModal.jsx";
 import { profile } from "../../service/profile.js";
-import nullPhoto from "./public/null_photo.png";
+import nullPhoto from "../public/null_photo.png";
 import { useParams } from "react-router-dom";
 import ProfileAlien from "./ProfileAlien/ProfileAlien.jsx";
 
@@ -35,9 +35,9 @@ export default function Profile() {
   return (
     <div className={styles.profile}>
       <ProfilePhotoAddModal open={photoModal} setOpen={setModal} />
-      <ProfileSideBar user = {auth_user} />
+      <LayoutSideBar user = {auth_user} active={'profile'} />
       <div className={styles.profile_main}>
-        <ProfileHeader auth_user={auth_user} avatar={avatar} />
+        <LayoutHeader avatar={avatar} />
         {user === auth_user ? (
           <ProfileMainBlock setModal={setModal} avatar={avatar} profilePhoto = {profilePhoto} />
         ) : (

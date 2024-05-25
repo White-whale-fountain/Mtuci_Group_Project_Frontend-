@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styles from "./MainFilters.module.css";
-import close from "../../../public/close.png";
+import close from "../../../../public/close.png";
 import ReactSlider from "react-slider";
 import "./MainFilters.css";
-
+import refreshImg from '../../../../public/refresh.png'
+import filtersImg from '../../../../public/filters.png'
 export default function MainFilters({
   isOpenFilters,
   setIsOpenFilters,
@@ -27,7 +28,7 @@ export default function MainFilters({
     <div className={styles.btns}>
       <button className={styles.btn_img} onClick={() => setRefresh(!refresh)}>
         <img
-          src="/../../src/assets/img/refresh.png"
+          src = {refreshImg}
           alt=""
           className={styles.img}
         />
@@ -42,7 +43,7 @@ export default function MainFilters({
           }
         >
           <img
-            src="/../../src/assets/img/filters.png"
+            src={filtersImg}
             alt=""
             className={styles.img}
           />

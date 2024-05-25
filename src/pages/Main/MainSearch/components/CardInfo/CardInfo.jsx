@@ -1,8 +1,8 @@
 import styles from "./CardInfo.module.css";
-import close from "../../../public/close.png";
-import chel from "../../../public/chel.png";
-import like from "../../../public/like.png";
-import swipe from "../../../public/swipe.png";
+import close from "../../../../public/close.png";
+import chel from "../../../../public/chel.png";
+import like from "../../../../public/like.png";
+import swipe from "../../../../public/swipe.png";
 import { useEffect, useState } from "react";
 import { cards } from "../../../../../service/mainCards.js";
 import { Link } from "react-router-dom";

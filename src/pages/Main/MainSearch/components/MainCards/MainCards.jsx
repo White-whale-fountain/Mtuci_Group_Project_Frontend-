@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import info from "../../../public/info.png";
+import info from "../../../../public/info.png";
 import styles from "./MainCards.module.css";
 import CardInfo from "../CardInfo/CardInfo";
-import sadSmile from "../../../public/sadSmile.png";
+import sadSmile from "../../../../public/sadSmile.png";
 
 export default function MainCards({ setIsOpenFilters, data }) {
   const [onFocus, setOnFocus] = useState(false);

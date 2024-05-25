@@ -2,7 +2,7 @@ import styles from "./ProfilePhotoAddModal.module.css";
 import {useEffect, useRef, useState} from "react";
 import {createPortal} from "react-dom";
 import {profile} from "../../../service/profile.js";
-import photo from "../public/cloud-computing.png";
+import photo from "../../public/cloud-computing.png";
 import 'react-image-crop/dist/ReactCrop.css'
 import ReactCrop, {centerCrop, convertToPixelCrop, makeAspectCrop} from "react-image-crop";
 import setCanvasPreview from './setCanvasPreview.js'
