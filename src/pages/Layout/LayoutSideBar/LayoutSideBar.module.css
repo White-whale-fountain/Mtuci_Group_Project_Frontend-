@@ -53,3 +53,10 @@
   position: absolute;
   bottom: 25px;
 }
+
+.photo_div{
+  cursor: pointer;
+}
+.hidden_input {
+  display: none;
+}

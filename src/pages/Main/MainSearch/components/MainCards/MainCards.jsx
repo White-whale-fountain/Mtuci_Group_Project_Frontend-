@@ -89,6 +89,7 @@ export default function MainCards({ setIsOpenFilters, data }) {
         <CardInfo
           setCardModal={setCardModal}
           tempLogin={tempLogin}
+          setTempLogin={setTempLogin}
           currentIdCard={currentIdCard}
           setCurrentIdCard={setCurrentIdCard}
           data={data}

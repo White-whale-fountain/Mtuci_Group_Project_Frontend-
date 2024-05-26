@@ -4,7 +4,7 @@ export const auth = {
   async login(form) {
     try {
       const response = await instance.post("/login", { ...form });
-      return response.data.status_code === 200;
+      return response.data.status_code;
     } catch (error) {
       console.log(error);
     }
@@ -12,7 +12,7 @@ export const auth = {
   async registration(form) {
     try {
       const response = await instance.post("/registration", { ...form });
-      return response.data.status_code === 200;
+      return response.data.status_code;
     } catch (error) {
       console.log(error);
     }
