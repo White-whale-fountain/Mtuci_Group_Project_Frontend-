@@ -1,12 +1,13 @@
 import styles from "./ProfileTabLikes.module.css";
-import happyPeople from "../../../public/people2.png";
+import happyPeople from "../../../../public/people2.png";
 import { useEffect, useState } from "react";
 import { likes } from "../../../../../service/likes";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ProfileTabLikes() {
   const authUser = JSON.parse(localStorage.getItem("user"));
-  const [likeUsers, setLikeUsers] = useState([]);
+  const [likeUsers, setLikeUsers] = useState({});
 
   useEffect(() => {
     async function showLikes() {
@@ -16,14 +17,17 @@ export default function ProfileTabLikes() {
     }
     showLikes();
   }, []);
-  // console.log(likeUsers);
+  console.log(likeUsers);
   return (
     <div className={styles.preferences_main_block}>
-      {likeUsers ? (
-        likeUsers.map((user) => {
+      {likeUsers != {} ? (
+        Object.values(likeUsers).map((user) => {
           return (
             <>
-              <p>Это - {user}</p>
+              <p>Это - {user.name}</p>
+              <Link to={`/${user.login}`}>
+                <p>Перейти на Профиль:</p>
+              </Link>
             </>
           );
         })

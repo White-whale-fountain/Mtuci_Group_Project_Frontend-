@@ -24,7 +24,7 @@ export const likes = {
 
   async takeLikes(authUser) {
     const response = await instance.get(`/who_i_liked/${authUser}`);
-    return response.data.users_who_i_liked;
+    return response.data;
   },
   catch(error) {
     console.log(error);
