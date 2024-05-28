@@ -5,6 +5,7 @@ import SingUp from "../pages/Home/components/SingUp/SingUp.jsx";
 import Profile from "../pages/Profile/Profile.jsx";
 import Main from "../pages/Main/Main.jsx";
 import ProfileTabLikes from "../pages/Profile/ProfileMainBlock/components/ProfileTabLikes/ProfileTabLikes.jsx";
+import HelpMe from "../pages/HelpMe/HelpMe.jsx";
 
 export default function () {
   return (
@@ -15,7 +16,7 @@ export default function () {
         <Route path={"/registration"} element={<SingUp />} />
         <Route path={"/main"} element={<Main />} />
         <Route path="/:user" element={<Profile />} />
-        <Route path="/:user/likes" element={<ProfileTabLikes />} />
+        <Route path="/help" element={<HelpMe />} />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </BrowserRouter>

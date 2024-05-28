@@ -5,7 +5,7 @@ import mainAble from '../../public/home.png'
 import profileAble from '../../public/profile.png'
 import profileDisable from '../../public/profile_disable.png'
 import logo from '../../public/logo.png'
-import messages from '../../public/messages_disable.png'
+// import messages from '../../public/messages_disable.png'
 import help from '../../public/help.jpg'
 export default function LayoutSideBar({ user, active }) {
 
@@ -34,9 +34,9 @@ export default function LayoutSideBar({ user, active }) {
         {/*<Link to={``} className={styles.nav_button}>*/}
         {/*  <img src={messages} alt="profile" />*/}
         {/*</Link>*/}
-        <button className={styles.nav_button} id={styles.nav_help_button}>
+        <Link to ={'/help'} className={styles.nav_button} id={styles.nav_help_button}>
           <img src= {help} alt="help" />
-        </button>
+        </Link>
       </div>
     </nav>
   );

@@ -1,0 +1,92 @@
+.help_me_container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f4f4f466;
+}
+
+.help_me_main {
+  width: 100%;
+}
+
+.help_me_form{
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.help_me_form h1{
+  font: 500 40px 'Montseratt';
+  padding-bottom: 10px;
+}
+
+.help_me_succes p{
+  font: 400 25px 'Montseratt';
+  color: #262626dd;
+}
+
+.help_me_container p{
+  font: 400 25px 'Montseratt';
+  color: #262626dd;
+}
+
+.help_me_container form{
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.help_me_form_inputs{
+  width: 600px;
+  height: 300px;
+  text-align: center;
+  font: 400 18px 'Montseratt';
+  border-radius: 10px;
+  border: 1px solid lightgrey;
+}
+
+.help_me_form_inputs:first-child{
+  width: 350px;
+  height: 50px;
+}
+
+.help_me_container form button {
+  width: 190px;
+  height: 40px;
+  padding: 5px;
+  font: 500 19px Montserrat;
+  background-color: #26a0f8;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.help_me_container form button:hover {
+  background-color: #26a0f8dd;
+  transition: all 0.4s;
+}
+
+.help_me_succes{
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.help_me_succes img{
+  width: 212px;
+  height: 212px;
+}
+
+.help_me_succes form{
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+

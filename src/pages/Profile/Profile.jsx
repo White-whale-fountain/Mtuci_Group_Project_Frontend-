@@ -5,7 +5,7 @@ import ProfileMainBlock from "./ProfileMainBlock/ProfileMainBlock.jsx";
 import { useEffect, useState } from "react";
 import ProfilePhotoAddModal from "./ProfilePhotoAddModal/ProfilePhotoAddModal.jsx";
 import { profile } from "../../service/profile.js";
-import nullPhoto from "../public/null_photo.png";
+import nullPhoto from "../../../../backend/Vladuk1love-Mtuci_Group_Project_Backend/default_photo.png";
 import { useParams } from "react-router-dom";
 import ProfileAlien from "./ProfileAlien/ProfileAlien.jsx";
 
