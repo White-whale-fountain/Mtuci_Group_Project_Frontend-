@@ -9,7 +9,7 @@
 }
 
 .help_me_form{
-  height: 600px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,17 +17,17 @@
 }
 
 .help_me_form h1{
-  font: 500 40px 'Montseratt';
+  font: 500 40px 'Montserrat';
   padding-bottom: 10px;
 }
 
 .help_me_succes p{
-  font: 400 25px 'Montseratt';
+  font: 400 25px 'Montserrat';
   color: #262626dd;
 }
 
 .help_me_container p{
-  font: 400 25px 'Montseratt';
+  font: 400 25px 'Montserrat';
   color: #262626dd;
 }
 
@@ -43,7 +43,7 @@
   width: 600px;
   height: 300px;
   text-align: center;
-  font: 400 18px 'Montseratt';
+  font: 400 18px 'Montserrat ';
   border-radius: 10px;
   border: 1px solid lightgrey;
 }

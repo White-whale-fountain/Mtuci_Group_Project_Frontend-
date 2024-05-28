@@ -44,9 +44,12 @@ export default function LayoutHeader(props) {
           </button>
           {isOpen && (
             <ul className={styles.profile_menu_list}>
-              <li key={0} className={styles.profile_menu_listitem}>
+              <Link to = {'/help'} style={{textDecoration: 'none'}}>
+                <li key={0} className={styles.profile_menu_listitem}>
                 Помощь
               </li>
+              </Link>
+
               {/*<li key={0} className={styles.profile_menu_listitem}>*/}
               {/*  Мои лайки*/}
               {/*</li>*/}
