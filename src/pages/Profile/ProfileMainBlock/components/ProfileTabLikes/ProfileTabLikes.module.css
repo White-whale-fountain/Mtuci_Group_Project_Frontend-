@@ -1,11 +1,48 @@
 .preferences_main_block{
     display: flex;
     align-items: center;
-    height: 220px;
+    min-height: 270px;
+    max-height: 320px;
     flex-direction: column;
-    gap: 80px;
+    gap: 20px;
     padding-top: 40px;
     position: relative;
+    overflow-y: auto;
+}
+
+
+/* Бегунок */
+.preferences_main_block::-webkit-scrollbar {
+  -webkit-border-radius: 5px;
+  width: 10px;
+}
+
+.preferences_main_block::-webkit-scrollbar-thumb {
+    background: #26A0F8dd;
+  -webkit-border-radius: 10px;
+  width: 20px;
+}
+
+/* Дорожка */
+.preferences_main_block::-webkit-scrollbar-track {
+  background: #D9D9D9;
+  -webkit-border-radius: 10px;
+  width: 10px;
+}
+
+
+
+.preferences_main_block_list_item{
+    width: 750px;
+    min-height: 80px;
+    background-color: #26A0F81A;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 35px;
+    padding-right: 35px;
+    box-sizing: border-box;
 }
 
 .preferences_main_block p{
@@ -15,7 +52,37 @@
     z-index: 104;
 }
 
-.preferences_main_block button{
+.preferences_main_block_list_item_main_info{
+    display: flex;
+    align-items: center;
+    gap: 30px
+}
+
+.preferences_main_block_list_item_main_info p{
+    font: 600 20px "Montserrat";
+    text-decoration: none;
+}
+
+.preferences_main_block_list_item_main_info img{
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+}
+
+.preferences_main_block_list_item_right_buttons{
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+
+.preferences_main_block_list_item_right_buttons button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.preferences_main_block_find_button{
     width: 175px;
     height: 40px;
     font: 700 20px Montserrat;
@@ -26,15 +93,17 @@
     cursor: pointer;
     z-index: 999;
     position: relative;
+    top: 75px;
 }
 
-.preferences_main_block button:hover{
+.preferences_main_block_find_button:hover{
     background-color: #26A0F8dd;
     transition: all 0.4s;
 }
 
-.preferences_main_block img{
+.preferences_main_block_find_img{
     position: absolute;
+    margin-top: 25px;
     z-index: 1;
     left: 0;
     bottom: 0;

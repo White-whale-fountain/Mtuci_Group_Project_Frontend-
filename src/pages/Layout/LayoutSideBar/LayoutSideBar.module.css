@@ -33,15 +33,15 @@
 .nav_main {
   width: 100px;
   display: flex;
-  gap: 43px;
+  gap: 55px;
   flex-wrap: wrap;
-  padding-left: 40px;
+  padding-left: 50px;
   padding-top: 100px;
 }
 
 .nav_button {
-  max-height: 35px;
-  max-width: 100px;
+  max-height: 45px;
+  max-width: 110px;
   border: none;
   border-radius: 10px;
   /* background-color: #e6e6e133; */

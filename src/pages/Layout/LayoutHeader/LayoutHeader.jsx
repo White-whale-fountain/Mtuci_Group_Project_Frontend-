@@ -19,11 +19,11 @@ export default function LayoutHeader(props) {
         className={styles.profile_header_profile}
       />
       <div className={styles.profile_right}>
-        <img
-          src={bell}
-          alt="Уведомления"
-          className={styles.profile_header_notifications}
-        />
+        {/*<img*/}
+        {/*  src={bell}*/}
+        {/*  alt="Уведомления"*/}
+        {/*  className={styles.profile_header_notifications}*/}
+        {/*/>*/}
         <nav>
           <button
             className={styles.profile_header_dropdown}
@@ -45,12 +45,15 @@ export default function LayoutHeader(props) {
           {isOpen && (
             <ul className={styles.profile_menu_list}>
               <li key={0} className={styles.profile_menu_listitem}>
-                Мои лайки
+                Помощь
               </li>
-              <hr />
-              <li key={1} className={styles.profile_menu_listitem}>
-                Друзья
-              </li>
+              {/*<li key={0} className={styles.profile_menu_listitem}>*/}
+              {/*  Мои лайки*/}
+              {/*</li>*/}
+              {/*<hr />*/}
+              {/*<li key={1} className={styles.profile_menu_listitem}>*/}
+              {/*  Друзья*/}
+              {/*</li>*/}
               <hr />
               <li key={2} className={styles.profile_menu_listitem}>
                 <Link to={"/"}>

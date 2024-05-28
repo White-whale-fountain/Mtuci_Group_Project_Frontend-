@@ -11,7 +11,7 @@ export default function ProfileAlienHeader({ name, sex, age }) {
 
   useEffect(() => {
     async function checkLike() {
-      const response = await likes.takeLikes(user);
+      const response = await likes.checkLike(authUser,user);
       setLiked(response);
     }
     checkLike();
@@ -19,7 +19,7 @@ export default function ProfileAlienHeader({ name, sex, age }) {
 
   async function setLike() {
     const response = await likes.putLike(authUser, user);
-    if (response == 204) {
+    if (response === 204) {
       setLiked(!liked);
     }
   }

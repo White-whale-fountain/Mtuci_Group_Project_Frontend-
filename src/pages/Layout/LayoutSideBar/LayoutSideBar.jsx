@@ -31,9 +31,9 @@ export default function LayoutSideBar({ user, active }) {
             height={"28px"}
           />
         </Link>
-        <Link to={``} className={styles.nav_button}>
-          <img src={messages} alt="profile" />
-        </Link>
+        {/*<Link to={``} className={styles.nav_button}>*/}
+        {/*  <img src={messages} alt="profile" />*/}
+        {/*</Link>*/}
         <button className={styles.nav_button} id={styles.nav_help_button}>
           <img src= {help} alt="help" />
         </button>
